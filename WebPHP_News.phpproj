@@ -1,0 +1,41 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>WebPHP_News</Name>
+    <ProjectGuid>{19469c95-49bc-4812-8193-7ca5bf2108a5}</ProjectGuid>
+    <RootNamespace>
+    </RootNamespace>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="database\tintuc.sql" />
+    <Compile Include="database\UserSQLHeliohost.txt" />
+    <Compile Include="module\danhmuc\danhsach.php" />
+    <Compile Include="module\danhmuc\sua.php" />
+    <Compile Include="module\danhmuc\them.php" />
+    <Compile Include="module\danhmuc\xoa.php" />
+    <Compile Include="module\dashboard\index.php" />
+    <Compile Include="module\tintuc\danhsach.php" />
+    <Compile Include="module\tintuc\sua.php" />
+    <Compile Include="module\tintuc\them.php" />
+    <Compile Include="module\tintuc\xoa.php" />
+    <Compile Include="config.php" />
+    <Compile Include="connect.php" />
+    <Compile Include="index.php" />
+    <Compile Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="database" />
+    <Folder Include="module\danhmuc" />
+    <Folder Include="module\dashboard" />
+    <Folder Include="module\tintuc" />
+    <Folder Include="module" />
+  </ItemGroup>
+</Project>
