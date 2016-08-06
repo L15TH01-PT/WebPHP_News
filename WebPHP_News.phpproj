@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -17,25 +18,56 @@
   <ItemGroup>
     <Compile Include="database\tintuc.sql" />
     <Compile Include="database\UserSQLHeliohost.txt" />
-    <Compile Include="module\danhmuc\danhsach.php" />
-    <Compile Include="module\danhmuc\sua.php" />
-    <Compile Include="module\danhmuc\them.php" />
-    <Compile Include="module\danhmuc\xoa.php" />
-    <Compile Include="module\dashboard\index.php" />
-    <Compile Include="module\tintuc\danhsach.php" />
-    <Compile Include="module\tintuc\sua.php" />
-    <Compile Include="module\tintuc\them.php" />
-    <Compile Include="module\tintuc\xoa.php" />
-    <Compile Include="config.php" />
-    <Compile Include="connect.php" />
     <Compile Include="index.php" />
+    <Compile Include="config.php" />
+    <Compile Include="libs\connect.php" />
+    <Compile Include="libs\mylibs.php" />
+    <Compile Include="module\head.php" />
+    <Compile Include="module\header.php" />
+    <Compile Include="module\header\navibar.php" />
+    <Compile Include="module\header\search.php" />
+    <Compile Include="module\list\item.php" />
+    <Compile Include="module\list_news_index.php" />
+    <Compile Include="module\right.php" />
+    <Compile Include="myadmin\config.php" />
+    <Compile Include="myadmin\index.php" />
+    <Compile Include="myadmin\module\danhmuc\danhsach.php" />
+    <Compile Include="myadmin\module\danhmuc\sua.php" />
+    <Compile Include="myadmin\module\danhmuc\them.php" />
+    <Compile Include="myadmin\module\danhmuc\xoa.php" />
+    <Compile Include="myadmin\module\dashboard\index.php" />
+    <Compile Include="myadmin\module\tintuc\danhsach.php" />
+    <Compile Include="myadmin\module\tintuc\sua.php" />
+    <Compile Include="myadmin\module\tintuc\them.php" />
+    <Compile Include="myadmin\module\tintuc\xoa.php" />
     <Compile Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
     <Folder Include="database" />
-    <Folder Include="module\danhmuc" />
-    <Folder Include="module\dashboard" />
-    <Folder Include="module\tintuc" />
-    <Folder Include="module" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
+    <Folder Include="libs\" />
+    <Folder Include="module\header\" />
+    <Folder Include="module\list\" />
+    <Folder Include="myadmin\" />
+    <Folder Include="myadmin\module\" />
+    <Folder Include="myadmin\module\danhmuc\" />
+    <Folder Include="myadmin\module\dashboard\" />
+    <Folder Include="myadmin\module\tintuc\" />
+    <Folder Include="module\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\main.css" />
+    <Content Include="css\navbar.css" />
+    <Content Include="css\new-box.css" />
+    <Content Include="css\newsNaviwrapper.css" />
+    <Content Include="css\searchbox.css" />
+    <Content Include="img\nct_event_bg.png" />
+    <Content Include="img\nnb_bg.gif" />
+    <Content Include="img\searchicon.png" />
+    <Content Include="img\thumb-004.jpg" />
+    <Content Include="img\thumb-005.jpg" />
+    <Content Include="img\thumb-006.jpg" />
   </ItemGroup>
 </Project>

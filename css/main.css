@@ -1,0 +1,146 @@
+﻿*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fafafa;
+    color: #202020;
+    font-family: Lato,"Avenir Next",Avenir,Helvetica,Arial,sans_serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    min-width: 948px;
+}
+
+a {
+    color: #1c74d1;
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset, img {
+    border: 0px none;
+}
+
+div.clear{
+    clear:both;
+}
+
+#header{
+    background: rgba(255, 255, 255, 0.99) none repeat scroll 0 0;
+    border-bottom: 1px solid #eaeaea;
+    line-height: 60px;
+    margin-bottom: 0;
+    position: relative;
+    transform: translateZ(0px);
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    z-index: 98;
+    background-color: #FFF;
+
+}
+
+.grid-container::before, .grid-container::after {
+    content: "";
+    display: table;
+}
+
+
+.grid-contain::after {
+    clear: both;
+}
+
+#header-top {
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 20;
+}
+
+#header-top-contents {
+    max-width: 1320px;
+    min-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+}
+
+#header-top-left {
+    float: left;
+    width: 45%;
+}
+
+#header-top-left > a {
+    color: #202020;
+    display: block;
+    padding: 6px 0;
+    text-decoration: none;
+    width: 22rem;
+}
+
+#header-top-center {
+    float: left;
+    width: 10%;
+}
+
+#header-top-right {
+    float: right;
+    width: 45%;
+}
+
+#header-search {
+    background-color: #ee3c72;
+    width: 100%;
+}
+
+#header-nav {
+    background-color: #bb1a4b;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
+}
+
+#contents {
+    margin: 20px auto 85px;
+    width: 960px;
+}
+
+#new-contents {
+
+}
+
+#new-contents-left {
+    height: 2545px;
+    position: relative;
+    float: left;
+    width: 648px;
+}
+
+#new-contents-right {
+    width: 300px !important;
+    clear: right;
+    float: right;
+    width: 300px;
+}
