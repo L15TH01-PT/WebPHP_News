@@ -1,4 +1,3 @@
-
 <div class="newsNaviwrapper">
     <p class="nsa_title1">Latest News</p>
     <div class="newsNaviBox">

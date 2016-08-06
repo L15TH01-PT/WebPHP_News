@@ -3,6 +3,10 @@
     <div id="new-contents-left">
         <?php
             mylibs::include_module('list/item');
+            mylibs::include_module('list/item');
+            mylibs::include_module('list/item');
+            mylibs::include_module('list/item');
+            mylibs::include_module('list/item');
         ?>
     </div>
     <div id="new-contents-right">

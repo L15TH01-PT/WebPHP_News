@@ -18,8 +18,8 @@ require_once('libs/mylibs.php');
         switch($module)
         {
             case 'list':
-            {
-                mylibs::include_module('list_news_index');
+                {
+                    mylibs::include_module('list_news_index');
                 break;
             }
             default:

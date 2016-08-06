@@ -27,6 +27,7 @@
     <Compile Include="module\header\navibar.php" />
     <Compile Include="module\header\search.php" />
     <Compile Include="module\list\item.php" />
+    <Compile Include="module\list\topnew.php" />
     <Compile Include="module\list_news_index.php" />
     <Compile Include="module\right.php" />
     <Compile Include="myadmin\config.php" />

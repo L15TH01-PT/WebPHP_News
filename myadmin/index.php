@@ -1,5 +1,6 @@
-<?php  
-include ('connect.php');
+<?php
+require_once('config.php');
+include_once('../libs/connect.php');
 ?>
 <!DOCTYPE html>
 <html>
