@@ -22,6 +22,7 @@
     <Compile Include="config.php" />
     <Compile Include="libs\connect.php" />
     <Compile Include="libs\mylibs.php" />
+    <Compile Include="libs\query.php" />
     <Compile Include="module\head.php" />
     <Compile Include="module\header.php" />
     <Compile Include="module\header\navibar.php" />

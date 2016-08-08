@@ -1,30 +1,31 @@
 <?php
-require_once('config.php');
-require_once('libs/mylibs.php');
+require 'config.php';
+require 'libs/mylibs.php';
+require getLibsPath('query');
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <?php mylibs::include_module('head');?>
+    <?php require getModulePath('head');?>
 </head>
 <body>
     <div id="header">
-        <?php mylibs::include_module('header');?>
+        <?php include getModulePath('header');?>
     </div>
     
     <div id="contents">
         <?php
-        $module=mylibs::getReGet('ac','list');
+        $module=getReGet('ac','list');
         switch($module)
         {
             case 'list':
                 {
-                    mylibs::include_module('list_news_index');
+                    include getModulePath('list_news_index');
                 break;
             }
             default:
             {
-                mylibs::include_module('list_news_index');
+                include getModulePath('list_news_index');
                 break;
             }
         }

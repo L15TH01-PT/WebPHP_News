@@ -16,8 +16,8 @@
     </div>
 </div>
 <div id="header-search">
-    <?php mylibs::include_module('header/search');?>
+    <?php include getModulePath('header/search');?>
 </div>
 <div id="header-nav">
-    <?php mylibs::include_module('header/navibar');?>
+    <?php include getModulePath('header/navibar');?>
 </div>

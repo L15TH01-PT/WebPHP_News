@@ -2,14 +2,16 @@
 <div id="new-contents">
     <div id="new-contents-left">
         <?php
-            mylibs::include_module('list/item');
-            mylibs::include_module('list/item');
-            mylibs::include_module('list/item');
-            mylibs::include_module('list/item');
-            mylibs::include_module('list/item');
-        ?>
+        $data=query('SELECT * FROM tintuc');
+        print_r($data);
+        include getModulePath('list/item');
+        include getModulePath('list/item');
+        include getModulePath('list/item');
+        include getModulePath('list/item');
+        include getModulePath('list/item');
+?>
     </div>
     <div id="new-contents-right">
-        <?php mylibs::include_module('right');?>
+        <?php include getModulePath('right');?>
     </div>
 </div>
