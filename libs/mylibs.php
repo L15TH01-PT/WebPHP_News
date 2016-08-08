@@ -14,6 +14,12 @@ function getModulePath($name='')
 {
     return getMyPath('module/'.$name.'.php');
 }
+//get Link
+function getMyLink($path=array())
+{
+    return $_SERVER['HTTP_HOST'].'?'.http_build_query($path);
+}
+
 //get value GET, POST
 function getReGet($name,$default='')
 {
