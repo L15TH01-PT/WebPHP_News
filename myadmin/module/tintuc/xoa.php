@@ -1,1 +1,0 @@
-this is the news delete page
