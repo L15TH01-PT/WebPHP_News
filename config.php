@@ -1,5 +1,5 @@
 <?php  
-define('HOST','localhost');
+define('HOST','locahost');
 define('DBNAME','tintuc');
 define('USER','root');
 define('PASS','');
