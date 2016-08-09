@@ -8,6 +8,11 @@
     </RootNamespace>
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <Runtime>PHP</Runtime>
+    <RuntimeVersion>5.6</RuntimeVersion>
+    <EnvName>PHPDev</EnvName>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <PHPDevAutoPort>true</PHPDevAutoPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -26,7 +31,6 @@
     <Compile Include="model\model_danhmuc.php" />
     <Compile Include="model\model_tintuc.php" />
     <Compile Include="model\model_user.php" />
-    <Compile Include="module\head.php" />
     <Compile Include="module\header.php" />
     <Compile Include="module\header\navibar.php" />
     <Compile Include="module\header\search.php" />

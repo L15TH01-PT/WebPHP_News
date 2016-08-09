@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if(!isset($_GET['cat']))
 {
 ?>
@@ -8,12 +8,9 @@ if(!isset($_GET['cat']))
 else
 {
     require_once getModelPath('model_danhmuc');
-    echo '0';
     $cat = thong_tin_sua_dm($conn,$_GET['cat']);
-    echo '1';
     if($cat == null)
     {
-        echo '2';
         header('Location: .');
         return;
     }
@@ -28,10 +25,16 @@ else
         //$data=query('SELECT news.id,news.title,news.intro,news.image,news.category_id,category.`name` FROM news INNER JOIN category ON news.category_id = category.id ORDER BY news.id DESC');
         require_once getModelPath('model_tintuc');
         require_once getModulePath('list/item');
-        foreach (danh_sach_tt_main($conn,getReGet('page',1),getReGet('cat',0)) as $item)
+        $data=danh_sach_tt_main($conn,getReGet('page',1),getReGet('cat',0));
+        if(count($data) == 0)
         {
-        	addListNewsItem($item);
+            echo "Chưa có tin mới";
         }
+        else
+            foreach ($data as $item)
+            {
+        	    addListNewsItem($item);
+            }
 ?>
     </div>
     <div id="new-contents-right">
