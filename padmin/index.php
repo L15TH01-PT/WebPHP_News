@@ -34,7 +34,7 @@ include '../library/function.php';
 		<table width="100%">
 			<tr>
 				<td>
-					<a href="index.php">Trang chính</a> | <a href="index.php?p=danh-sach-nguoi-dung">Quản lý user</a> | <a href="index.php?p=danh-sach-danh-muc">Quản lý danh mục</a> | <a href="index.php?p=danh-sach-tin-tuc">Quản lý tin</a>
+					<a href="index.php">Trang chính</a> | <a href="index.php?p=danh-sach-user">Quản lý user</a> | <a href="index.php?p=danh-sach-danh-muc">Quản lý danh mục</a> | <a href="index.php?p=danh-sach-tin-tuc">Quản lý tin</a>
 				</td>
 				<td align="right">
 					Xin chào admin | <a href="logout.php">Logout</a>
@@ -47,32 +47,41 @@ include '../library/function.php';
 		if (isset($_GET["p"])) {
 			$p = $_GET["p"];
 			switch ($p) {
-				case 'trang-chu':
-					include 'module/dashboard/index.php';
-					break;
 				case 'them-danh-muc':
-					include 'module/cate/add.php';
+					include 'module/danhmuc/them.php';
 					break;
 				case 'sua-danh-muc':
-					include 'module/cate/edit.php';
+					include 'module/danhmuc/sua.php';
 					break;
 				case 'xoa-danh-muc':
-					include 'module/cate/delete.php';
+					include 'module/danhmuc/xoa.php';
 					break;
 				case 'danh-sach-danh-muc':
-					include 'module/cate/list.php';
+					include 'module/danhmuc/danhsach.php';
 					break;
 				case 'them-tin-tuc':
-					include 'module/news/add.php';
+					include 'module/tintuc/them.php';
 					break;
 				case 'xoa-tin-tuc':
-					include 'module/news/delete.php';
+					include 'module/tintuc/xoa.php';
 					break;
 				case 'sua-tin-tuc':
-					include 'module/news/edit.php';
+					include 'module/tintuc/sua.php';
 					break;
 				case 'danh-sach-tin-tuc':
-					include 'module/news/list.php';
+					include 'module/tintuc/danhsach.php';
+					break;
+				case 'them-user':
+					include 'module/tintuc/them.php';
+					break;
+				case 'xoa-user':
+					include 'module/tintuc/xoa.php';
+					break;
+				case 'sua-user':
+					include 'module/tintuc/sua.php';
+					break;
+				case 'quan-ly-user':
+					include 'module/tintuc/danhsach.php';
 					break;
 				default:
 					include 'module/dashboard/index.php';

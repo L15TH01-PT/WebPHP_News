@@ -80,7 +80,7 @@ img.thumbs {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    /** Thêm CSS 3.0 **/
+    /**CSS 3.0 **/
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -266,6 +266,7 @@ img.thumbs {
     padding: 0px 40px;
     background: url('../images/chart.png') no-repeat left center;
 }
+/*Css cho từng khung bên trái*/
 .user_add {
     background: url("../images/user_add.png") no-repeat center center;
 }
@@ -284,17 +285,13 @@ img.thumbs {
 .news_list {
     background: url("../images/news.png") no-repeat center center;
 }
-/********************************
-    DÙNG CHO TRANG LOGIN 
- *******************************/
+/*Trang loggin*/
 .login_img {
     width: 150px;
     height: 150px;
     background: url("../images/login_lock.png") no-repeat center center;
 }
-/*************************************************
-    THANH PHÂN TRANG (THUẬT TOÁN PHÂN TRANG) 
- ************************************************/
+/*Thanh phân trang*/
 #paging_nav {
     text-align: center;
     margin-top: 10px;
