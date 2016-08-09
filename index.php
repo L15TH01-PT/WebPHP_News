@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
-require 'libs/mylibs.php';
-require getLibsPath('query');
+require 'library/mylibs.php';
+require getLibsPath('connect');
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

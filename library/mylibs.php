@@ -6,18 +6,22 @@ function getMyPath($path='')
         return BASE_PATH.$path;
     return str_replace('\\','/',dirname(__DIR__)).'/'.$path;
 }
-function getLibsPath($name='')
+function getLibsPath($name='index')
 {
-    return getMyPath('libs/'.$name.'.php');
+    return getMyPath('library/'.$name.'.php');
 }
-function getModulePath($name='')
+function getModulePath($name='index')
 {
     return getMyPath('module/'.$name.'.php');
+}
+function getModelPath($name='index')
+{
+    return getMyPath('model/'.$name.'.php');
 }
 //get Link
 function getMyLink($path=array())
 {
-    return $_SERVER['HTTP_HOST'].'?'.http_build_query($path);
+    return '?'.http_build_query($path);
 }
 
 //get value GET, POST

@@ -4,6 +4,7 @@ define('DBNAME','tintuc');
 define('DBUSER','root');
 define('DBPASS','');
 define('BASE_PATH',str_replace('\\','/',__DIR__).'/');
+define('NUM_IN_PAGE',5);
 
 // Dùng cho hàm đổi thời gian. Cập nhật chính xác múi giờ
 // Nếu đúng rồi thì thôi.
