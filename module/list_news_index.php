@@ -2,7 +2,9 @@
 //$data=query('SELECT news.id,news.title,news.intro,news.image,news.category_id,category.`name` FROM news INNER JOIN category ON news.category_id = category.id ORDER BY news.id DESC');
 require_once getModelPath('model_tintuc');
 require_once getModulePath('list/item');
-$data=danh_sach_tt_main($conn,getReGet('page',1),getReGet('cat',0));
+$total=0;
+$page=getReGet('page',1);
+$data=danh_sach_tt_main($conn,$total,$page,getReGet('cat',0));
 if(count($data) == 0)
 {
     echo "Chưa có tin mới";
@@ -12,6 +14,32 @@ else
     foreach ($data as $item)
     {
         addListNewsItem($item);
+    }
+    if($total>NUM_IN_PAGE)
+    {
+?>
+<div id="list_news_page">
+    <?php
+        if($page>1)
+        {
+    ?>
+    <div class="back">
+        <a href="<?php echo getMyLinkWithGet(array('page'=>$page-1));?>">Tin cũ hơn</a>
+    </div>
+    <?php
+        }
+        if($page*NUM_IN_PAGE<$total)
+        {
+    ?>
+    <div class="next">
+        <a href="<?php echo getMyLinkWithGet(array('page'=>$page+1));?>">Tin mới hơn</a>
+    </div>
+    <?php
+        }
+    ?>
+    <div class="clear"></div>
+</div>
+<?php
     }
 }
 ?>

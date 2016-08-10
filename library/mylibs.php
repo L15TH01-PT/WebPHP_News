@@ -23,6 +23,14 @@ function getMyLink($path=array())
 {
     return '?'.http_build_query($path);
 }
+function getMyLinkWithGet($path=array())
+{
+    if(!isset($path['ac'])&&isset($_GET['ac']))
+        $path['ac']=$_GET['ac'];
+    if(!isset($path['cat'])&&isset($_GET['cat']))
+        $path['cat']=$_GET['cat'];
+    return getMyLink($path);
+}
 
 //get value GET, POST
 function getReGet($name,$default='')

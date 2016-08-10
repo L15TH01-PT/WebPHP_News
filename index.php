@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require 'config.php';
 require 'library/mylibs.php';
 require getLibsPath('connect');
@@ -68,6 +68,7 @@ require getLibsPath('connect');
                 <?php include getModulePath('right');?>
             </div>
         </div>
+        <div class="clear"></div>
     </div>
 </body>
 </html>
