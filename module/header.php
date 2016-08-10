@@ -1,12 +1,12 @@
 <div id="header-top" class="grid-container">
     <div id="header-top-contents" class="grid-container">
         <div id="header-top-left">
-            <a class="grid-container" href="#">
+            <a class="grid-container" href="<?php echo getMyLink();?>">
                 <img src="img/thumb-004.jpg" />
             </a>
         </div>
         <div id="header-top-center">
-            <a href="#">
+            <a href="<?php echo getMyLink();?>">
                 <img src="img/thumb-005.jpg" />
             </a>
         </div>

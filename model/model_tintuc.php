@@ -16,4 +16,28 @@ LIMIT       :start,:num';
 	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $data;
 }
+function chi_tiet_tt($conn,$id){
+    $sql='
+SELECT  ne.id,ne.title,ne.author,ne.intro,ne.content,ne.image,ne.time_news,ne.category_id,ca.name
+FROM    news ne INNER JOIN category ca ON ne.category_id = ca.id
+WHERE   ne.id=:id';
+    $stmt=$conn->prepare($sql);
+    $stmt->bindValue(":id",$id,PDO::PARAM_INT);
+    $stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+function moi_nhat_tung_cat($conn){
+    $sql='
+SELECT	ne.id,ne.title,ne.intro,ne.image,ne.category_id,ca.name
+FROM	(	SELECT		MAX(id) id,category_id
+				FROM			news
+				GROUP BY	category_id
+				ORDER BY	category_id ASC) te INNER JOIN news ne on te.id=ne.id
+					INNER JOIN category ca on te.category_id=ca.id';
+    $stmt=$conn->prepare($sql);
+    $stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
 ?>

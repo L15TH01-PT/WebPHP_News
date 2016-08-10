@@ -18,24 +18,56 @@ require getLibsPath('connect');
     <div id="header">
         <?php include getModulePath('header');?>
     </div>
-    
+
     <div id="contents">
         <?php
-        $module=getReGet('ac','list');
-        switch($module)
+        if(!isset($_GET['cat']))
         {
-            case 'list':
-                {
-                    include getModulePath('list_news_index');
-                break;
-            }
-            default:
+        ?>
+        <div id="new-slideshow"></div>
+        <?php
+        }
+        else
+        {
+            require_once getModelPath('model_danhmuc');
+            $cat = thong_tin_sua_dm($conn,$_GET['cat']);
+            if($cat == null)
             {
-                include getModulePath('list_news_index');
-                break;
+                header('Location: .');
+                return;
             }
+        ?>
+        <h1>
+            <?php echo $cat['name'];?>
+        </h1>
+        <?php
         }
         ?>
+        <div id="new-contents">
+            <div id="new-contents-left">
+                <?php
+                    $module=getReGet('ac','list');
+                    switch($module)
+                    {
+                        case 'list':{
+                            include getModulePath('list_news_index');
+                            break;
+                        }
+                        case 'news':{
+                            include getModulePath('news_detail');
+                            break;
+                        }
+                        default:{
+                            include getModulePath('list_news_index');
+                            break;
+                        }
+                    }
+                ?>
+            </div>
+            <div id="new-contents-right">
+                <?php include getModulePath('right');?>
+            </div>
+        </div>
     </div>
 </body>
 </html>

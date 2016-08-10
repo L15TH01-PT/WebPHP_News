@@ -37,6 +37,7 @@
     <Compile Include="module\list\item.php" />
     <Compile Include="module\list\topnew.php" />
     <Compile Include="module\list_news_index.php" />
+    <Compile Include="module\news_detail.php" />
     <Compile Include="module\right.php" />
     <Compile Include="README.md" />
   </ItemGroup>
