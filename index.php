@@ -7,6 +7,7 @@ require getLibsPath('connect');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Tin tức</title>
+    <link rel="shortcut icon" type="image/png" href="img/pool-boat-icon-title.png" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/searchbox.css" rel="stylesheet" />
@@ -21,7 +22,7 @@ require getLibsPath('connect');
 
     <div id="contents">
         <?php
-        if(!isset($_GET['cat']))
+        if(!isset($_GET['cat'])&&!isset($_GET['search']))
         {
         ?>
         <div id="new-slideshow"></div>
@@ -29,18 +30,21 @@ require getLibsPath('connect');
         }
         else
         {
-            require_once getModelPath('model_danhmuc');
-            $cat = thong_tin_sua_dm($conn,$_GET['cat']);
-            if($cat == null)
+            if(isset($_GET['cat']))
             {
-                header('Location: .');
-                return;
-            }
+                require_once getModelPath('model_danhmuc');
+                $cat = thong_tin_sua_dm($conn,$_GET['cat']);
+                if($cat == null)
+                {
+                    header('Location: .');
+                    return;
+                }
         ?>
         <h1>
             <?php echo $cat['name'];?>
         </h1>
         <?php
+            }
         }
         ?>
         <div id="new-contents">

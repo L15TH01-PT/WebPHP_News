@@ -1,5 +1,5 @@
 <?php
-function danh_sach_tt_main($conn,&$total=0,$page=1,$dm=0){
+function danh_sach_tt_main($conn,&$total=0,$dm=0,$page=1,$search=''){
     $sql='
 SELECT      ne.id,ne.title,ne.intro,ne.image,ne.category_id,ca.name
 FROM        news ne INNER JOIN category ca ON ne.category_id = ca.id
@@ -7,10 +7,14 @@ FROM        news ne INNER JOIN category ca ON ne.category_id = ca.id
 ORDER BY    ne.id DESC
 LIMIT       :start,:num
 ';
-    $sql=str_replace('{WHERE}',$dm>0?'WHERE ne.category_id=:catid':'',$sql);
+    $where=$dm>0?'WHERE ne.category_id=:catid':'';
+    $where=$where.($search!=''?($dm>0?' AND':'WHERE').' ne.title like :search':'');
+    $sql=str_replace('{WHERE}',$where,$sql);
     $stmt=$conn->prepare($sql);
     if($dm>0)
         $stmt->bindParam(":catid",$dm,PDO::PARAM_INT);
+    if($search != '')
+        $stmt->bindParam(":search",$search="%$search%",PDO::PARAM_STR);
     $stmt->bindValue(":start",(int)($page-1)*NUM_IN_PAGE,PDO::PARAM_INT);
     $stmt->bindValue(":num",(int)NUM_IN_PAGE,PDO::PARAM_INT);
     $stmt->execute();
@@ -20,10 +24,12 @@ LIMIT       :start,:num
 SELECT  COUNT(*)
 FROM    news ne
 {WHERE}';
-    $sql=str_replace('{WHERE}',$dm>0?'WHERE ne.category_id=:catid':'',$sql);
+    $sql=str_replace('{WHERE}',$where,$sql);
     $stmt=$conn->prepare($sql);
     if($dm>0)
         $stmt->bindParam(":catid",$dm,PDO::PARAM_INT);
+    if($search != '')
+        $stmt->bindParam(":search",$search,PDO::PARAM_STR);
     $stmt->execute();
 	$total = $stmt->fetchAll(PDO::FETCH_NUM);
     $total=$total[0][0];

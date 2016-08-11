@@ -29,6 +29,8 @@ function getMyLinkWithGet($path=array())
         $path['ac']=$_GET['ac'];
     if(!isset($path['cat'])&&isset($_GET['cat']))
         $path['cat']=$_GET['cat'];
+    if(!isset($path['search'])&&isset($_GET['search']))
+        $path['search']=$_GET['search'];
     return getMyLink($path);
 }
 

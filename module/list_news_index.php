@@ -1,16 +1,21 @@
-﻿<?php
+<?php
 //$data=query('SELECT news.id,news.title,news.intro,news.image,news.category_id,category.`name` FROM news INNER JOIN category ON news.category_id = category.id ORDER BY news.id DESC');
 require_once getModelPath('model_tintuc');
 require_once getModulePath('list/item');
 $total=0;
 $page=getReGet('page',1);
-$data=danh_sach_tt_main($conn,$total,$page,getReGet('cat',0));
+$data=danh_sach_tt_main($conn,$total,getReGet('cat',0),$page,getReGet('search',''));
 if(count($data) == 0)
 {
-    echo "Chưa có tin mới";
+    if(getReGet('search','')!='')
+        echo "<p>Không tìm thấy tin tức cần tìm</p>";
+    else
+        echo "<p>Chưa có tin mới</p>";
 }
 else
 {
+    if(getReGet('search','')!='')
+        echo "<p style='padding: 5px;margin-bottom: 25px;'>Tìm thấy <b>$total</b> tin tức";// với từ khóa <b>".getReGet('search','')."</b></p>";
     foreach ($data as $item)
     {
         addListNewsItem($item);
@@ -24,7 +29,7 @@ else
         {
     ?>
     <div class="back">
-        <a href="<?php echo getMyLinkWithGet(array('page'=>$page-1));?>">Tin cũ hơn</a>
+        <a href="<?php echo getMyLinkWithGet(array('page'=>$page-1));?>">Tin mới hơn</a>
     </div>
     <?php
         }
@@ -32,7 +37,7 @@ else
         {
     ?>
     <div class="next">
-        <a href="<?php echo getMyLinkWithGet(array('page'=>$page+1));?>">Tin mới hơn</a>
+        <a href="<?php echo getMyLinkWithGet(array('page'=>$page+1));?>">Tin cũ hơn</a>
     </div>
     <?php
         }

@@ -60,6 +60,8 @@
     <Content Include="css\searchbox.css" />
     <Content Include="img\nct_event_bg.png" />
     <Content Include="img\nnb_bg.gif" />
+    <Content Include="img\pool-boat-icon-title.png" />
+    <Content Include="img\pool-boat-icon.png" />
     <Content Include="img\searchicon.png" />
     <Content Include="img\thumb-004.jpg" />
     <Content Include="img\thumb-005.jpg" />
