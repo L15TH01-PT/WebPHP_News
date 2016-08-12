@@ -72,7 +72,7 @@ function xoa_dm($conn,$id,&$error = null) {
 	$check1 = $conn->prepare("SELECT * from category where parent_id = :id ");
 	$check1->bindParam(":id",$id);
 	$check1->execute();
-	$r1 = $check->rowCount();
+	$r1 = $check1->rowCount();
 	echo $r.'<br/>';
 	echo $r1.'<br/>';
 	// if ($r != 0) {
