@@ -42,12 +42,6 @@
   <ItemGroup>
     <Folder Include="css\" />
     <Folder Include="images\" />
-    <Folder Include="images\tintuc\" />
-    <Folder Include="images\tintuc\.ckfinder\" />
-    <Folder Include="images\tintuc\.ckfinder\cache\" />
-    <Folder Include="images\tintuc\.ckfinder\cache\thumbs\" />
-    <Folder Include="images\tintuc\.ckfinder\cache\thumbs\Files\" />
-    <Folder Include="images\tintuc\.ckfinder\cache\thumbs\Files\12540534_1135464883165627_9168085885540043903_n.jpg\" />
     <Folder Include="js\" />
     <Folder Include="library\" />
     <Folder Include="model\" />
@@ -61,14 +55,6 @@
     <Content Include="css\new-box.css" />
     <Content Include="css\newsNaviwrapper.css" />
     <Content Include="css\searchbox.css" />
-    <Content Include="images\tintuc\.ckfinder\cache\.htaccess" />
-    <Content Include="images\tintuc\.ckfinder\cache\thumbs\.htaccess" />
-    <Content Include="images\tintuc\.ckfinder\cache\thumbs\Files\12540534_1135464883165627_9168085885540043903_n.jpg\12540534_1135464883165627_9168085885540043903_n__150x150.jpg" />
-    <Content Include="images\tintuc\1471005512_cao-oc-6296-1470977238.jpg" />
-    <Content Include="images\tintuc\1471014364_2-f35-1470985103_660x0.jpg" />
-    <Content Include="images\tintuc\1471014430_anh-2-6451-1470826182.jpg" />
-    <Content Include="images\tintuc\1471014508_img-8678-1470992397_660x0.jpg" />
-    <Content Include="images\tintuc\1471014607_untitled-1-1820-1470992867.jpg" />
     <Content Include="images\nct_event_bg.png" />
     <Content Include="images\nnb_bg.gif" />
     <Content Include="images\pool-boat-icon-title.png" />
