@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once getModelPath('model_tintuc');
 $data=chi_tiet_tt($conn,getReGet('news',0));
 if(count($data) == 0)
@@ -20,19 +20,19 @@ else
         </div>
     </div>
     <div class="new-contents-item-contents">
-        <p class="news_day">Jul. 27, 2016 13:14</p>
+        <p class="news_day"><?php echo convert_time($data['time_news']);?></p>
         <h2 class="news_title">
             <a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>"><?php echo $data['title'];?></a>
         </h2>
         <p class="news_pic">
-            <img alt="EVENT / Wonder Festival 2016 Summer: Creator Edition [Event Report]" src="https://d3ieicw58ybon5.cloudfront.net/ex/315.472/0.0.1333.1991/u/7ed9323ae3e84f5e8ea3e35c1f77e97b.jpg" />
+            <img alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>" />
         </p>
-        <p class="news_bodyread">
+        <div class="news_bodyread">
             <?php echo $data['intro']; ?>
-        </p>
-        <p class="news_bodyread">
+        </div>
+        <div class="news_bodyread">
             <?php echo $data['content']; ?>
-        </p>
+        </div>
     </div>
 </div>
 <?php

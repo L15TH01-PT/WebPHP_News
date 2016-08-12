@@ -25,9 +25,7 @@
     <Compile Include="config.php" />
     <Compile Include="library\connect.php" />
     <Compile Include="library\function.php" />
-    <Compile Include="libs\connect.php" />
     <Compile Include="library\mylibs.php" />
-    <Compile Include="libs\query.php" />
     <Compile Include="model\model_danhmuc.php" />
     <Compile Include="model\model_tintuc.php" />
     <Compile Include="model\model_user.php" />
@@ -52,7 +50,6 @@
     <Folder Include="images\tintuc\.ckfinder\cache\thumbs\Files\12540534_1135464883165627_9168085885540043903_n.jpg\" />
     <Folder Include="js\" />
     <Folder Include="library\" />
-    <Folder Include="libs\" />
     <Folder Include="model\" />
     <Folder Include="module\header\" />
     <Folder Include="module\list\" />

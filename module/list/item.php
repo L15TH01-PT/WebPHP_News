@@ -12,14 +12,14 @@ function addListNewsItem($data)
     </div>
     <a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>">
         <div class="new-contents-item-contents">
-            <p class="news_day">Jul. 27, 2016 13:14</p>
+            <p class="news_day"><?php echo convert_time($data['time_news']);?></p>
             <h2 class="news_title">
                 <?php echo $data['title'];?>
-        </h2>
-        <p class="news_pic">
-            <img alt="EVENT / Wonder Festival 2016 Summer: Creator Edition [Event Report]" src="https://d3ieicw58ybon5.cloudfront.net/ex/315.472/0.0.1333.1991/u/7ed9323ae3e84f5e8ea3e35c1f77e97b.jpg" />
-        </p>
-        <p class="news_bodyread"><?php echo $data['intro']; ?></p>
+            </h2>
+            <p class="news_pic">
+                <img alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>" />
+            </p>
+            <p class="news_bodyread"><?php echo $data['intro']; ?></p>
         </div>
     </a>
 </div>
