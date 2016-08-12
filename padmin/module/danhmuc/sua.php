@@ -1,31 +1,41 @@
 <?php 
-if (isset($_GET["dmid"])) {
-	$error = null;
-	$id = $_GET["dmid"];
+$error = null;
+if (isset($_GET['dmid'])) {
+	$id = $_GET['dmid'];
+	$data = thong_tin_sua_dm($conn,$id);
 	if (isset($_POST["btnCateEdit"])) {
 		if (empty($_POST["txtCateName"])) {
-			$error = "Vui lòng nhập danh mục";
-		} else {
+			$error =  "vui lòng nhập cate name";
+		}else{
+			$name = $_POST["txtCateName"];
 			$data = array(
-				'id'	=> $id,
-				'name'	=> $_POST["txtCateName"]
+				'name' => $name,
+				'id' =>$id
 			);
-			sua_dm ($conn,$data,$error);
-			// sua_dm($conn,$data);
+			sua_dm($conn,$data,$error);
 		}
 	}
-	$data = thong_tin_sua_dm ($conn,$id);
-?>
-
-<?php 
-error_msg ($error);
-?>
+}
+ ?>
+<?php
+	error_msg($error);
+ ?>
 <form action="" method="POST" style="width: 650px;">
 	<fieldset>
 		<legend>Thông Tin Danh Mục</legend>
+		<span class="form_label">Danh mục cha:</span>
+		<span class="form_item">
+			<select name="sltCate" class="select">
+				<option value="0">--- ROOT ---</option>
+				<!-- Giữ lại danh mục khi nhấn button nhưng ko nhập gì -> báo lỗi -->
+				<?php dm_cha($conn,$parent_id = 0, $str="--|",$_POST["sltCate"]); ?>
+			</select>
+		</span><br />
 		<span class="form_label">Tên danh mục:</span>
 		<span class="form_item">
-			<input type="text" name="txtCateName" class="textbox" value="<?php echo $data["name"] ?>" />
+			<input type="text" name="txtCateName" class="textbox" 
+			<?php isset_value_input_text('txtTitle', $data['name']) ?>
+			 />
 		</span><br />
 		<span class="form_label"></span>
 		<span class="form_item">
@@ -33,11 +43,3 @@ error_msg ($error);
 		</span>
 	</fieldset>
 </form>  
-
-<?php
-} else {
-	redirect("index.php?p=danh-sach-danh-muc");
-}
-?>
-
-	

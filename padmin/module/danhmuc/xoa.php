@@ -1,9 +1,8 @@
 <?php
 $error = null; 
 if (isset($_GET["dmid"])) {
-	$id = $_GET["cid"];
-	cate_delete_2($conn,$id,$error);
-	// error_msg($error);
+	$id = $_GET["dmid"];
+	xoa_dm($conn,$id,$error);
 	echo "<script>
 		alert('Không được phép xóa!');
 		window.location.href='index.php?p=danh-sach-danh-muc';
@@ -12,5 +11,4 @@ if (isset($_GET["dmid"])) {
 } else {
 	redirect("index.php?p=danh-sach-danh-muc");
 }
-
 ?>
