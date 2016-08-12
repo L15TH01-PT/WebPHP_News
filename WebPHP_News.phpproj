@@ -8,6 +8,11 @@
     </RootNamespace>
     <OutputType>Library</OutputType>
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <Runtime>PHP</Runtime>
+    <RuntimeVersion>5.6</RuntimeVersion>
+    <EnvName>PHPDev</EnvName>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <PHPDevAutoPort>true</PHPDevAutoPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>
@@ -16,47 +21,35 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="database\tintuc.sql" />
-    <Compile Include="database\UserSQLHeliohost.txt" />
     <Compile Include="index.php" />
     <Compile Include="config.php" />
+    <Compile Include="library\connect.php" />
+    <Compile Include="library\function.php" />
     <Compile Include="libs\connect.php" />
-    <Compile Include="libs\mylibs.php" />
+    <Compile Include="library\mylibs.php" />
     <Compile Include="libs\query.php" />
-    <Compile Include="module\head.php" />
+    <Compile Include="model\model_danhmuc.php" />
+    <Compile Include="model\model_tintuc.php" />
+    <Compile Include="model\model_user.php" />
     <Compile Include="module\header.php" />
     <Compile Include="module\header\navibar.php" />
     <Compile Include="module\header\search.php" />
     <Compile Include="module\list\item.php" />
     <Compile Include="module\list\topnew.php" />
     <Compile Include="module\list_news_index.php" />
+    <Compile Include="module\news_detail.php" />
     <Compile Include="module\right.php" />
-    <Compile Include="myadmin\config.php" />
-    <Compile Include="myadmin\index.php" />
-    <Compile Include="myadmin\module\danhmuc\danhsach.php" />
-    <Compile Include="myadmin\module\danhmuc\sua.php" />
-    <Compile Include="myadmin\module\danhmuc\them.php" />
-    <Compile Include="myadmin\module\danhmuc\xoa.php" />
-    <Compile Include="myadmin\module\dashboard\index.php" />
-    <Compile Include="myadmin\module\tintuc\danhsach.php" />
-    <Compile Include="myadmin\module\tintuc\sua.php" />
-    <Compile Include="myadmin\module\tintuc\them.php" />
-    <Compile Include="myadmin\module\tintuc\xoa.php" />
     <Compile Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="database" />
     <Folder Include="img\" />
     <Folder Include="js\" />
+    <Folder Include="library\" />
     <Folder Include="libs\" />
+    <Folder Include="model\" />
     <Folder Include="module\header\" />
     <Folder Include="module\list\" />
-    <Folder Include="myadmin\" />
-    <Folder Include="myadmin\module\" />
-    <Folder Include="myadmin\module\danhmuc\" />
-    <Folder Include="myadmin\module\dashboard\" />
-    <Folder Include="myadmin\module\tintuc\" />
     <Folder Include="module\" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +60,8 @@
     <Content Include="css\searchbox.css" />
     <Content Include="img\nct_event_bg.png" />
     <Content Include="img\nnb_bg.gif" />
+    <Content Include="img\pool-boat-icon-title.png" />
+    <Content Include="img\pool-boat-icon.png" />
     <Content Include="img\searchicon.png" />
     <Content Include="img\thumb-004.jpg" />
     <Content Include="img\thumb-005.jpg" />

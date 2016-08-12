@@ -117,13 +117,41 @@ div.clear{
     width: 100%;
 }
 
+#header-search-contents {
+    max-width: 1320px;
+    min-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+#header-search-left {
+    float: left;
+}
+
+#header-search-left > a {
+    color: #FFFFFF;
+    display: block;
+    padding: 6px 0;
+    text-decoration: none;
+    font-size: 45px;
+    font-family: 'Comic Sans MS';
+    margin-right:20px;
+}
+
+#header-search-main {
+    display: flex;
+    height: 80px;
+}
+
 #header-nav {
     background-color: #bb1a4b;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.18);
 }
 
 #contents {
-    margin: 20px auto 85px;
+    margin: 20px auto 20px;
     width: 960px;
 }
 
@@ -132,7 +160,6 @@ div.clear{
 }
 
 #new-contents-left {
-    height: 2545px;
     position: relative;
     float: left;
     width: 648px;

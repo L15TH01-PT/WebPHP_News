@@ -1,4 +1,4 @@
-﻿.search {
+﻿input.search {
     background-color: white;
     background-image: url('../img/searchicon.png');
     background-position: 6px 4px;
@@ -6,7 +6,7 @@
     border: 2px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px 20px 6px 40px;
     width: 100%;
 }
