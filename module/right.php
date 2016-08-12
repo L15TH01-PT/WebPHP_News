@@ -12,11 +12,11 @@
         </p>
         <div class="newsNaviBoxin">
             <p class="nnb_pic">
-                <img width="80" height="60" alt="The Complete Paper Cup Manga Collection" src="https://d3ieicw58ybon5.cloudfront.net/ex/80.60/u/6e393e4057fb4f94b4436c8a46fb808b.jpg">
+                <img width="80" height="60" alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>">
             </p>
             <div class="nnb_bodyarea">
                 <p class="nnb_title js-nnb_title"><a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>"><?php echo $data['title'];?></a></p>
-                <p class="nnb_day">Jul. 23, 2016 00:00</p>
+                <p class="nnb_day"><?php echo convert_time($data['time_news']);?></p>
             </div>
             <div class="clear"></div>
         </div>

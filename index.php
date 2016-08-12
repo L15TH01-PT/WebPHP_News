@@ -1,6 +1,7 @@
 <?php
 require 'config.php';
 require 'library/mylibs.php';
+require 'library/function.php';
 require getLibsPath('connect');
 ?>
 <!DOCTYPE html>

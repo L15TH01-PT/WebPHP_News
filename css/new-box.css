@@ -72,18 +72,24 @@
     line-height: 0;
     margin-bottom: 10px;
     text-align: center;
+    max-width: 628px;
 }
 
-.new-contents-item-contents .news_pic {
-    max-width: 628px;
+.new-contents-item-contents img {
+    max-width: 562px;
 }
 
 .new-contents-item-contents .news_bodyread {
     color: #000;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 25.6px;
+    padding: 10px;
     margin-bottom: 10px;
+}
+
+.new-contents-item-contents .news_bodyread p{
+    margin-bottom: 5px;
 }
 
 #list_news_page > .back
