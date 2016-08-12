@@ -60,7 +60,7 @@ error_msg ($error);
 					if (isset($_POST['sltCate'])) {
 						news_cate_data($conn,$_POST["sltCate"]) ;
 					}else{
-						news_cate_data($conn,$data['category_id']) ;
+						dm_cha($conn,$parent_id = 0, $str="--|",$data['category_id']);
 					}
 					 ?>
 			</select>
