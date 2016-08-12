@@ -26,15 +26,17 @@
     font-size: 11px;
     height: 16px;
     left: 10px;
-    line-height: 1.7;
+    line-height: 1.3;
     position: absolute;
     top: 54px;
+    z-index: 99;
 }
 
 .nnb_news a {
     color: #fff;
     font-style: normal;
     padding: 0 3px;
+    z-index: 99;
 }
 
 .newsNaviBoxin {
