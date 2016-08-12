@@ -40,6 +40,13 @@ function danh_sach_dm($conn){
 	return $data;
 }
 
+function danh_sach_dm_ex($conn){
+	$stmt = $conn->prepare("SELECT * FROM category ORDER BY parent_id,id");
+	$stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $data;
+}
+
 function thong_tin_sua_dm($conn,$id){
 	$stmt = $conn ->prepare("SELECT * From category where id = :id");
 	$stmt->bindParam(":id",$id,PDO::PARAM_INT);
