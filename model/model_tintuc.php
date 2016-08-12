@@ -67,19 +67,28 @@ function sua_khong_hinh ($conn,$data) {
 }
 // Cập nhật 1 tin tức có hình
 function sua_co_hinh ($conn,$data) {
-	$stmt = $conn ->prepare("UPDATE news SET title = :title ,author =:author ,:image = :image, intro =:intro ,content =:content,status = :status ,time_news =:time_news,category_id = :category_id where id =:id");
-	$stmt -> bindParam(':title',$data['title'],PDO::PARAM_STR);
-	$stmt -> bindParam(':author',$data['author'],PDO::PARAM_STR);
-	$stmt -> bindParam(':intro',$data['intro'],PDO::PARAM_STR);
-	$stmt -> bindParam(':image',$data['image'],PDO::PARAM_STR);
-	$stmt -> bindParam(':content',$data['content'],PDO::PARAM_STR);
-	$stmt -> bindParam(':status',$data['status'],PDO::PARAM_INT);
-	$stmt -> bindParam(':time_news',$data['time_news'],PDO::PARAM_INT);
-	$stmt -> bindParam(':category_id',$data['category_id'],PDO::PARAM_INT);
-	$stmt -> bindParam(':id',$data['id'],PDO::PARAM_INT);
+	$stmt_name_image = $conn->prepare("SELECT image FROM news WHERE id = :id");
+	$stmt_name_image->bindParam(':id',$data["id"],PDO::PARAM_INT);
+	$stmt_name_image->execute();
+	$r = $stmt_name_image->fetch(PDO::FETCH_ASSOC);
+	if (file_exists("../images/tintuc/".$r["image"])) {
+		unlink("../images/tintuc/".$r["image"]);
+	}
+
+	$stmt = $conn->prepare("UPDATE news SET title = :title , author = :author , intro = :intro , content = :content , status = :status , category_id = :category_id,time_news = :time_news , image = :image WHERE id = :id");
+	// echo $data["new_image"];
+	$stmt->bindParam(':title',$data["title"],PDO::PARAM_STR);
+	$stmt->bindParam(':author',$data["author"],PDO::PARAM_STR);
+	$stmt->bindParam(':intro',$data["intro"],PDO::PARAM_STR);
+	$stmt->bindParam(':content',$data["content"],PDO::PARAM_STR);
+	$stmt->bindParam(':image',$data["new_image"],PDO::PARAM_STR);
+	$stmt->bindParam(':status',$data["status"],PDO::PARAM_INT);
+	$stmt->bindParam(':category_id',$data["category_id"],PDO::PARAM_INT);
+	$stmt->bindParam(':time_news',$data["time_news"],PDO::PARAM_INT);
+	$stmt->bindParam(':id',$data["id"],PDO::PARAM_INT);
 	$stmt->execute();
-	move_uploaded_file($data['image_tmp'], '../images/tintuc/'.$data['image']);
-	redirect ("index.php?p=danh-sach-tin-tuc");
+	move_uploaded_file($data["image_tmp"], '../images/tintuc/'.$data["new_image"]);
+	redirect("index.php?p=danh-sach-tin-tuc");
 }
 
 //khi xóa thì phải xóa luôn hình trong thư mục.
@@ -100,6 +109,8 @@ function news_delete($conn,$id){
 }
 	
 
+
+//-----------------------------------------------------------------------
 function danh_sach_tt_main($conn,&$total=0,$dm=0,$page=1,$search=''){
     $sql='
 SELECT      ne.id,ne.title,ne.intro,ne.image,ne.category_id,ca.name

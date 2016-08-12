@@ -23,7 +23,7 @@ if (isset($_POST['btnNewsAdd'])) {
 				'author'      => $_POST['txtAuthor'],
 				'intro'       => $_POST['txtIntro'],
 				'content'     => $_POST['txtFull'],
-				'image'		  => change_image_name($_FILES['newsImg']['name']),
+				'image'       => change_image_name($_FILES['newsImg']['name']),
 				'image_tmp'	  => $_FILES['newsImg']['tmp_name'],
 				'status'      => $_POST['rdoPublic'],
 				'time_news'   => time() 

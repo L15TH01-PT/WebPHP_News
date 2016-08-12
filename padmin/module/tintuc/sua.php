@@ -5,42 +5,50 @@
 		$id = $_GET['ttid'];
 		$error = null;
 		$data=tin_tuc_can_sua($conn,$id);
-	if (isset($_POST['btnNewsEdit'])) {
-		if ($_POST['sltCate'] == "") {
-			$error = 'Vui lòng chọn danh mục';
-		}elseif (empty($_POST['txtTitle'])) {
-			$error = 'Vui lòng nhập tiêu đề tin';
-		}elseif (empty($_POST['txtAuthor'])) {
-			$error = 'Vui lòng nhập tác giả';
-		}elseif (empty($_POST['txtIntro'])) {
-			$error =  'vui lòng nhập trích dẫn';
-		}elseif (empty($_POST['txtFull'])) {
-			$error = 'Vui lòng nhập nội dung tin';
-		}else{
-			$data  = array(
-					'id'          => $id,
-					'category_id' => $_POST['sltCate'],
-					'title'       => $_POST['txtTitle'],
-					'author'      => $_POST['txtAuthor'],
-					'intro'       => $_POST['txtIntro'],
-					'content'     => $_POST['txtFull'],
-					'image'       => change_image_name($_FILES['newsImg']['name']),
-					'status'      => $_POST['rdoPublic'],
-					'time_news'   => time(),
-					'image_tmp'   => $_FILES['newsImg']['tmp_name'] 
-				);
-			if (empty($_FILES['newsImg']['name'])) {
+		if (isset($_POST["btnNewsEdit"])) {
+		if ($_POST["sltCate"] == "none") {
+			$error = "Vui lòng chọn danh mục";
+		} elseif (empty($_POST["txtTitle"])) {
+			$error = "Vui lòng nhập tiêu đề";
+		} elseif (empty($_POST["txtAuthor"])) {
+			$error = "Vui lòng nhập tên tác giả";
+		} elseif (empty($_POST["txtIntro"])) {
+			$error = "Vui lòng nhập trích dẫn";
+		} elseif (empty($_POST["txtFull"])) {
+			$error = "Vui lòng nhập nội dung tin";
+		} else {
+			$data = array(
+				'id'	=> $id,
+				'category_id'	=> $_POST["sltCate"],
+				'title'	=> $_POST["txtTitle"],
+				'author'=> $_POST["txtAuthor"],
+				'intro'	=> $_POST["txtIntro"],
+				'content'	=> $_POST["txtFull"],
+				'new_image'	=> change_image_name ($_FILES["newsImg"]["name"]),
+				'image_tmp' =>$_FILES["newsImg"]["tmp_name"],
+				'status'=> $_POST["rdoPublic"],
+				'time_news'	=> time()
+			);
+
+			if (empty($_FILES["newsImg"]["name"])) {
+				// echo 'sửa không hình';
 				sua_khong_hinh ($conn,$data);
-			}elseif(!in_array(get_extension($_FILES['newsImg']['name']),$fileExt)){
-				$error ="File hình không hợp lệ, vui lòng kiểm tra lại!";
-			}elseif (in_array(get_extension($_FILES['newsImg']['name']),$fileExt)) {
-				// sua_co_hinh ($conn,$data);
-				print_r($data);
+			} else {
+				if (!in_array(get_extension($_FILES["newsImg"]["name"]),$fileExt)) {
+					$error = "File hình không hợp lệ!";
+				} else {
+					// echo 'sửa có hình';
+					sua_co_hinh ($conn,$data,$error);
+				}
 			}
 		}
-		error_msg($error);
 	}
 ?>
+
+<?php 
+error_msg ($error);
+?>
+
 <form action="" method="POST" enctype="multipart/form-data" style="width: 650px;">
 	<fieldset>
 		<legend>Sửa Tin Tức</legend>
