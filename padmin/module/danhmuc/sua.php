@@ -26,9 +26,10 @@ if (isset($_GET['dmid'])) {
 		<span class="form_label">Danh mục cha:</span>
 		<span class="form_item">
 			<select name="sltCate" class="select">
-				<option value="0">--- ROOT ---</option>
+				<option value="0">Chọn Danh Mục</option>
 				<!-- Giữ lại danh mục khi nhấn button nhưng ko nhập gì -> báo lỗi -->
-				<?php dm_cha($conn,$parent_id = 0, $str="--|",$_POST["sltCate"]); ?>
+				<?php dm_cha($conn,$parent_id = 0, $str="--|",$data['id']); ?>
+				
 			</select>
 		</span><br />
 		<span class="form_label">Tên danh mục:</span>

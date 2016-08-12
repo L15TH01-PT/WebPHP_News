@@ -74,9 +74,7 @@ function sua_co_hinh ($conn,$data) {
 	if (file_exists("../images/tintuc/".$r["image"])) {
 		unlink("../images/tintuc/".$r["image"]);
 	}
-
 	$stmt = $conn->prepare("UPDATE news SET title = :title , author = :author , intro = :intro , content = :content , status = :status , category_id = :category_id,time_news = :time_news , image = :image WHERE id = :id");
-	// echo $data["new_image"];
 	$stmt->bindParam(':title',$data["title"],PDO::PARAM_STR);
 	$stmt->bindParam(':author',$data["author"],PDO::PARAM_STR);
 	$stmt->bindParam(':intro',$data["intro"],PDO::PARAM_STR);
