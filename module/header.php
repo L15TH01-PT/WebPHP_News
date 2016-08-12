@@ -2,10 +2,10 @@
     <a class="grid-container" href="<?php echo getMyLink();?>">
         <div id="header-top-contents" class="grid-container">
             <div id="header-top-left">
-                <img src="img/pool-boat-icon.png" />
+                <img src="images/pool-boat-icon.png" />
             </div>
             <div id="header-top-center">
-                    <img src="img/thumb-005.jpg" />
+                    <img src="images/thumb-005.jpg" />
             </div>
             <div id="header-top-right">
             </div>
