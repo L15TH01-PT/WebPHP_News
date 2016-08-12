@@ -71,15 +71,11 @@
 		</span><br />
 		<span class="form_label">Trích dẫn:</span>
 		<span class="form_item">
-			<textarea name="txtIntro" rows="5" class="textbox">
-				<?php isset_value_input_text_area('txtIntro', $data['intro']) ?>
-			</textarea>
+			<textarea name="txtIntro" rows="5" class="textbox"><?php isset_value_input_text_area('txtIntro', $data['intro']) ?></textarea>
 		</span><br />
 		<span class="form_label">Nội dung tin:</span>
 		<span class="form_item">
-			<textarea name="txtFull" rows="8" class="textbox">
-				<?php isset_value_input_text_area('txtFull', $data['content']) ?>
-			</textarea>
+			<textarea name="txtFull" rows="8" class="textbox"><?php isset_value_input_text_area('txtFull', $data['content']) ?></textarea>
 		</span><br />
 		<span class="form_label">Hình hiện tại:</span>
 		<span class="form_item">

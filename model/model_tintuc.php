@@ -1,4 +1,3 @@
-
 <?php  
 // xổ xuống danh sách danh mục &  giữ lại giá trị khi refresh page
 function news_cate_data($conn,$selected){
