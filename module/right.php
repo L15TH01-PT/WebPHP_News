@@ -16,7 +16,7 @@
             </p>
             <div class="nnb_bodyarea">
                 <p class="nnb_title js-nnb_title"><a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>"><?php echo $data['title'];?></a></p>
-                <p class="nnb_day">Jul. 23, 2016 00:00</p>
+                <p class="nnb_day"><?php echo convert_time($data['time_news']);?></p>
             </div>
             <div class="clear"></div>
         </div>

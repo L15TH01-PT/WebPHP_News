@@ -102,14 +102,14 @@ function news_delete($conn,$id){
 
 function danh_sach_tt_main($conn,&$total=0,$dm=0,$page=1,$search=''){
     $sql='
-SELECT      ne.id,ne.title,ne.intro,ne.image,ne.category_id,ca.name
+SELECT      ne.id,ne.title,ne.intro,ne.image,ne.time_news,ne.category_id,ca.name
 FROM        news ne INNER JOIN category ca ON ne.category_id = ca.id
-{WHERE}
+WHERE       ne.status=1 {WHERE}
 ORDER BY    ne.id DESC
 LIMIT       :start,:num
 ';
-    $where=$dm>0?'WHERE ne.category_id=:catid':'';
-    $where=$where.($search!=''?($dm>0?' AND':'WHERE').' ne.title like :search':'');
+    $where=$dm>0?'AND ne.category_id=:catid':'';
+    $where=$where.($search!=''?'AND ne.title like :search':'');
     $sql=str_replace('{WHERE}',$where,$sql);
     $stmt=$conn->prepare($sql);
     if($dm>0)
@@ -124,7 +124,7 @@ LIMIT       :start,:num
     $sql='
 SELECT  COUNT(*)
 FROM    news ne
-{WHERE}';
+WHERE   ne.status=1 {WHERE}';
     $sql=str_replace('{WHERE}',$where,$sql);
     $stmt=$conn->prepare($sql);
     if($dm>0)

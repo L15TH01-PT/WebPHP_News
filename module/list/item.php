@@ -19,7 +19,7 @@ function addListNewsItem($data)
             <p class="news_pic">
                 <img alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>" />
             </p>
-            <p class="news_bodyread"><?php echo $data['intro']; ?></p>
+            <p class="news_bodyread"><?php echo NL2br(strip_tags($data['intro'])); ?></p>
         </div>
     </a>
 </div>
