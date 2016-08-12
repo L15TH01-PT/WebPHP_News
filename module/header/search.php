@@ -1,7 +1,7 @@
 <div id="header-search-contents" class="grid-container">
     <div id="header-search-left">
         <a class="grid-container" href="<?php echo getMyLink();?>">
-            <img src="img/pool-boat-icon.png" /><span>News</span>
+            <img src="images/pool-boat-icon.png" /><span>News</span>
         </a>
     </div>
     <div id="header-search-main">

@@ -7,7 +7,7 @@ require getLibsPath('connect');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Tin tức</title>
-    <link rel="shortcut icon" type="image/png" href="img/pool-boat-icon-title.png" />
+    <link rel="shortcut icon" type="image/png" href="images/pool-boat-icon-title.png" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/searchbox.css" rel="stylesheet" />
