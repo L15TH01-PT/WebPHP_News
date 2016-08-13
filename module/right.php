@@ -12,7 +12,7 @@
         </p>
         <div class="newsNaviBoxin">
             <p class="nnb_pic">
-                <img alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>">
+                <a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>"><img alt="<?php echo $data['title'];?>" src="<?php echo 'images/tintuc/'.$data['image'];?>"></a>
             </p>
             <div class="nnb_bodyarea">
                 <p class="nnb_title js-nnb_title"><a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>"><?php echo $data['title'];?></a></p>

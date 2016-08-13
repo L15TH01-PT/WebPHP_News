@@ -37,7 +37,6 @@
     <Compile Include="module\list_news_index.php" />
     <Compile Include="module\news_detail.php" />
     <Compile Include="module\right.php" />
-    <Compile Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
