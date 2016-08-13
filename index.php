@@ -37,7 +37,8 @@ require getLibsPath('connect');
                 $cat = thong_tin_sua_dm($conn,$_GET['cat']);
                 if($cat == null)
                 {
-                    header('Location: .');
+                    //header('Location: .');
+                    echo 'Danh mục không tồn tại';
                     return;
                 }
         ?>

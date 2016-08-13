@@ -124,7 +124,7 @@ LIMIT       :start,:num
     if($dm>0)
         $stmt->bindParam(":catid",$dm,PDO::PARAM_INT);
     if($search != '')
-        $stmt->bindParam(":search",$search="%$search%",PDO::PARAM_STR);
+        $stmt->bindValue(":search",$search='%'.$search.'%',PDO::PARAM_STR);
     $stmt->bindValue(":start",(int)($page-1)*NUM_IN_PAGE,PDO::PARAM_INT);
     $stmt->bindValue(":num",(int)NUM_IN_PAGE,PDO::PARAM_INT);
     $stmt->execute();

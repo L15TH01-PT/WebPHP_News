@@ -3,7 +3,7 @@ require_once getModelPath('model_tintuc');
 $data=chi_tiet_tt($conn,getReGet('news',0));
 if(count($data) == 0)
 {
-    echo "Tin tức không tồn tại.";
+    echo "<h1>Tin tức không tồn tại.<h1>";
 }
 else
 {

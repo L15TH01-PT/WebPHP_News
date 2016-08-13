@@ -25,7 +25,7 @@
                ?>>
                 <a href="<?php echo getMyLink(array('cat'=>$data[$i]['id']));?>"><?php echo $data[$i]['name'];?></a>
             <?php
-                if(j<count($data))
+                if($j<count($data))
                 {
             ?>
                 <div class="dropdown-content">
