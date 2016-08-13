@@ -32,11 +32,27 @@ function dm_cha($conn,$parent_id = 0, $str="--|",$selected){
 		dm_cha($conn,$item['id'], $str."--| ",$selected);
 	}
 }
+function dm_cha1($conn,$parent_id = 0, $str="--|",$selected){
+	$stmt = $conn->prepare("SELECT * FROM category WHERE parent_id = :parent_id");
+	$stmt -> bindParam("parent_id",$parent_id,PDO::PARAM_INT);
+	$stmt ->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($data as $item) {
+		// Khi click vào nếu chưa nhập gì thì vẫn dữ lại giá trị danh mục, ko về root.
+		if ($item['id'] == $selected) {
+			echo '<option value="'.$item['id'].'"selected>'.$str.$item['name'].'</option>';
+		}else{
+			echo '<option value="'.$item['id'].'">'.$str.$item['name'].'</option>';
+		}
+		// Gọi đệ Quy
+		// dm_cha($conn,$item['id'], $str."--| ",$selected);
+	}
+}
 
-function cate_list_data ($conn,$X,$B,$parent_id = 0,$str = "") {
+function cate_list_data ($conn,$parent_id = 0,$str = "") {
 	$ax = $X;
 	$ab = $B;
-	$stmt = $conn->prepare("SELECT id,name FROM category WHERE parent_id = :parent_id limit $X,$B");
+	$stmt = $conn->prepare("SELECT id,name FROM category WHERE parent_id = :parent_id");
 	$stmt->bindParam(':parent_id',$parent_id,PDO::PARAM_INT);
 	$stmt->execute();
 	$r = $stmt->rowCount();
@@ -51,7 +67,7 @@ function cate_list_data ($conn,$X,$B,$parent_id = 0,$str = "") {
 		        	</td>
 		    	</tr>';
 		    	unset($data[$key]);
-		    	cate_list_data ($conn,$ax,$ab,$value["id"],$str."---| ");
+		    	cate_list_data ($conn,$value["id"],$str."---| ");
 	}
 }
 function danh_sach_dm($conn){
@@ -84,9 +100,10 @@ function sua_dm($conn,$data,&$error){
 	if ($r != 0) {
 		$error = "Danh mục đã tồn tại, vui lòng nhập lại!";
 	}else{
-		$stmt = $conn->prepare("UPDATE category SET name=:name WHERE id = :id");
+		$stmt = $conn->prepare("UPDATE category SET name=:name,parent_id =:parent_id WHERE id = :id");
 		$stmt ->bindParam(':name',$data['name'],PDO::PARAM_STR);
 		$stmt ->bindParam(':id',$data['id'],PDO::PARAM_INT);
+		$stmt ->bindParam(':parent_id',$data['parent_id'],PDO::PARAM_INT);
 		$stmt->execute();
 		redirect("index.php?p=danh-sach-danh-muc");
 	}

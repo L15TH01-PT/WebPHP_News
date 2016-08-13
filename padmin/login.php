@@ -17,7 +17,7 @@ if (isset($_POST["btnLogin"])) {
         $error = "Vui lòng nhập Password";
     }elseif (empty($_POST["txtLock"])) {
         $error = "Vui lòng nhập khóa mở rộng";
-    } elseif ($_POST["txtLock"] != "txtExtra") {
+    } elseif ($_POST["txtLock"] != "News") {
         $error = "Khóa mở rộng không đúng";
     }
     else{

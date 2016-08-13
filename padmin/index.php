@@ -1,8 +1,10 @@
 <?php 
+ob_start();
 session_start(); 
 if (!isset($_SESSION["sys_level"]) || $_SESSION["sys_level"] != 1) {
+	session_destroy();
 	header("location:login.php");
-	// exit();
+	exit();
 }
 
 include '../config.php';
@@ -10,6 +12,7 @@ include '../library/connect.php';
 include '../model/model_danhmuc.php';
 include '../model/model_tintuc.php';
 include '../model/model_user.php';
+include '../model/thongke.php';
 include '../library/function.php';
 ?>
 <!DOCTYPE HTML>

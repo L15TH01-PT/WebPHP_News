@@ -10,6 +10,7 @@ if (isset($_GET['dmid'])) {
 			$name = $_POST["txtCateName"];
 			$data = array(
 				'name' => $name,
+				'parent_id' => $_POST["sltCate"],
 				'id' =>$id
 			);
 			sua_dm($conn,$data,$error);
@@ -28,7 +29,7 @@ if (isset($_GET['dmid'])) {
 			<select name="sltCate" class="select">
 				<option value="0">Chọn Danh Mục</option>
 				<!-- Giữ lại danh mục khi nhấn button nhưng ko nhập gì -> báo lỗi -->
-				<?php dm_cha($conn,$parent_id = 0, $str="--|",$data['id']); ?>
+				<?php dm_cha1($conn,$parent_id = 0, $str="--|",$data['parent_id']); ?>
 				
 			</select>
 		</span><br />

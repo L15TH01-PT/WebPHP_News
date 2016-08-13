@@ -34,22 +34,4 @@ $data = danhsach_user ($conn);
         </td>
     </tr>
     <?php } ?>
-    <!-- <tr class="list_data">
-        <td class="aligncenter">2</td>
-        <td class="list_td aligncenter">Vũ Quốc Tuấn</td>
-        <td class="list_td aligncenter"><span style="color: blue; font-weight: bold;">Admin</span></td>
-        <td class="list_td aligncenter">
-            <a href=""><img src="images/edit.png" /></a>&nbsp;&nbsp;&nbsp;
-            <a href=""><img src="images/delete.png" /></a>
-        </td>
-    </tr>
-    <tr class="list_data">
-        <td class="aligncenter">3</td>
-        <td class="list_td aligncenter">Vũ Quốc Tuấn</td>
-        <td class="list_td aligncenter"><span style="color: black;">Member</span></td>
-        <td class="list_td aligncenter">
-            <a href=""><img src="images/edit.png" /></a>&nbsp;&nbsp;&nbsp;
-            <a href=""><img src="images/delete.png" /></a>
-        </td>
-    </tr> -->
 </table>

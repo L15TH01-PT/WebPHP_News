@@ -9,18 +9,28 @@
 	</tr>
     <?php
     $B = 3;
-    $stmt = $conn ->prepare("SELECT * FROM news  ");
-    $stmt->execute();
-    $A = $stmt->rowCount();
-    $C =ceil($A/$B);
+    if (isset($_GET['page'])) {
+        $C = $_GET['page'];
+    }else{
+        $stmt = $conn ->prepare("SELECT * FROM news  ");
+        $stmt->execute();
+        $A = $stmt->rowCount();
+        $C =ceil($A/$B);
+    }
+    
     if (isset($_GET['start'])) {
        $X = $_GET['start'];
     }else{
         $X = 0;
     }
-    $dem = 1;
-    $data = danh_sach_tin_tuc($conn,$X,$B);
     
+    $data = danh_sach_tin_tuc($conn,$X,$B);
+    if (isset($_GET['dem'])) {
+        $n = $_GET['start'] + 1;
+        $dem = $n;
+    }else{
+       $dem = 1; 
+    }
     foreach ($data as $val) { ?>
 	<tr class="list_data">
         <td class="aligncenter"> <?php echo $dem; ?> </td>
@@ -41,21 +51,32 @@
     if ($C > 1) {
         $D = $X/$B + 1;
         if ($D != 1) {
+            echo "<a href='index.php?p=danh-sach-tin-tuc&start=0&page=$C'>First&nbsp; </a>";
             $Y = $X - $B; 
-            echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'>Prev</a>";
+            echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y&page=$C'>Prev</a>";
         }
-        for ($i=1; $i <= $C ; $i++) {
+        $begin = $D - 2;
+        if ($begin < 1) {
+           $begin = 1;
+        }
+        $end = $D + 2;
+        if ($end > $C) {
+            $end = $C;
+        }
+        for ($i=$begin; $i <= $end ; $i++) {
             if ($D == $i) {
-               echo " <b> $i</b> ";
+               echo " <b> $i </b>";
             }else{
                 $Y = ($i-1)*$B;
-                echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'> $i </a> ";
+                echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y&page=$C'> $i </a>";
             }
            
         }
         if ($D != $C) {
             $Y = $X + $B;
-           echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'>Next</a>";
+           echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y&page=$C'>Next</a>";
+           $Y =($C -1) * $B;
+           echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y&page=$C'> &nbsp;Last</a>";
         }
     }
 ?>
