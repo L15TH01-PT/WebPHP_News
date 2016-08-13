@@ -4,33 +4,40 @@ $data = danh_sach_dm ($conn);
 ?>
 <table class="list_table">
 	<tr class="list_heading">
-		<td class="id_col">STT</td>
 		<td>Danh Mục</td>
-        <td>Danh Mục Cha</td>
 		<td class="action_col">Xử lý</td>
 	</tr>
+    <?php
+    $B = 3;
+    $stmt = $conn ->prepare("SELECT * FROM category where parent_id =0");
+    $stmt->execute();
+    $A = $stmt->rowCount();
+    $C =ceil($A/$B);
+    if (isset($_GET['start'])) {
+       $X = $_GET['start'];
+    }else{
+        $X = 0;
+    }
+    
 
-    <?php 
-    $stt = 0;
-    foreach ($data as $val) {
-        $stt = $stt + 1;
-        $a = $val["parent_id"];
-            $stmt = $conn->prepare("SELECT * FROM category where id=:parent_id");
-            $stmt ->bindParam(":parent_id",$a,PDO::PARAM_INT);
-            $stmt->execute();
-            $data1 = $stmt->fetch(PDO::FETCH_ASSOC);
-    ?>
-	<tr class="list_data">
-        <td class="aligncenter"><?php echo $stt; ?></td>
-        <td class="list_td alignleft"><?php echo $val["name"] ?></td>
-        <td class="list_td alignleft"><?php
-            echo $data1['name'];
-         ?></td>
-        <td class="list_td aligncenter">
-            <a href="index.php?p=sua-danh-muc&dmid=<?php echo $val["id"] ?>"><img src="temp/images/edit.png" /></a>&nbsp;&nbsp;&nbsp;
-            <a onclick="return acceptDelete ('Xác nhận xóa danh mục này?')" href="index.php?p=xoa-danh-muc&dmid=<?php echo $val["id"] ?>"><img src="temp/images/delete.png" /></a>
-        </td>
-    </tr>
-    <?php } ?>
-
+    cate_list_data($conn,$X,$B) ?>
 </table>
+<div align="center">
+<?php  
+    if ($C > 1) {
+        $D = $X/$B + 1;
+        if ($D != 1) {
+            $Y = $X + $B; 
+            echo "<a href='index.php?p=danh-sach-danh-muc&start=$Y'>Prev</a>";
+        }
+        for ($i=1; $i <= $C ; $i++) {
+                $Y = ($i-1)*$B;
+            echo "<a href='index.php?p=danh-sach-danh-muc&start=$Y'> $i </a> ";
+        }
+        if ($D != $C) {
+            $Y = $X + $B;
+           echo "<a href='index.php?p=danh-sach-danh-muc&start=$Y'>Next</a>";
+        }
+    }
+?>
+</div>

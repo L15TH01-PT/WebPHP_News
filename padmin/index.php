@@ -1,4 +1,10 @@
 <?php 
+session_start(); 
+if (!isset($_SESSION["sys_level"]) || $_SESSION["sys_level"] != 1) {
+	header("location:login.php");
+	// exit();
+}
+
 include '../config.php';
 include '../library/connect.php';
 include '../model/model_danhmuc.php';
@@ -10,7 +16,6 @@ include '../library/function.php';
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="QuocTuan.Info" />
     <link rel="stylesheet" href="temp/templates/css/style.css" />
     <!-- Nhúng Ckeditor -->
     <script type="text/javascript" src="../library/ckeditor/ckeditor.js"></script>
@@ -34,10 +39,10 @@ include '../library/function.php';
 		<table width="100%">
 			<tr>
 				<td>
-					<a href="index.php">Trang chính</a> | <a href="index.php?p=danh-sach-user">Quản lý user</a> | <a href="index.php?p=danh-sach-danh-muc">Quản lý danh mục</a> | <a href="index.php?p=danh-sach-tin-tuc">Quản lý tin</a>
+					<a href="index.php">Trang chính</a> | <a href="index.php?p=danh-sach-user">Quản lý user</a> | <a href="index.php?p=danh-sach-danh-muc">Quản lý danh mục</a> | <a href="index.php?p=danh-sach-tin-tuc">Quản lý tin</a> | <a href="index.php?p=them-tin-tuc">Thêm Tin</a> | <a href="index.php?p=them-danh-muc">Thêm Danh mục</a> | <a href="index.php?p=them-user">Thêm User</a>
 				</td>
 				<td align="right">
-					Xin chào admin | <a href="logout.php">Logout</a>
+					Xin chào <?php echo $_SESSION["sys_user"] ?> | <a href="logout.php">Logout</a>
 				</td>
 			</tr>
 		</table>
@@ -72,16 +77,16 @@ include '../library/function.php';
 					include 'module/tintuc/danhsach.php';
 					break;
 				case 'them-user':
-					include 'module/tintuc/them.php';
+					include 'module/user/them.php';
 					break;
 				case 'xoa-user':
-					include 'module/tintuc/xoa.php';
+					include 'module/user/xoa.php';
 					break;
 				case 'sua-user':
-					include 'module/tintuc/sua.php';
+					include 'module/user/sua.php';
 					break;
-				case 'quan-ly-user':
-					include 'module/tintuc/danhsach.php';
+				case 'danh-sach-user':
+					include 'module/user/danhsach.php';
 					break;
 				default:
 					include 'module/dashboard/index.php';
@@ -93,7 +98,7 @@ include '../library/function.php';
 		?>    
 	</div>
     <div id="bottom">
-        Copyright © 2016 by PhongTran 
+        PhongTran - LT51500122
     </div>
 </div>
 </body>

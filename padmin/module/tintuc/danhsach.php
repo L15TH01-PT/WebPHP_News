@@ -1,6 +1,3 @@
-<?php  
-    $data = danh_sach_tin_tuc($conn);
-?>
 <table class="list_table">
 	<tr class="list_heading">
 		<td class="id_col">STT</td>
@@ -11,7 +8,19 @@
 		<td class="action_col">Xử lý?</td>
 	</tr>
     <?php
+    $B = 3;
+    $stmt = $conn ->prepare("SELECT * FROM news  ");
+    $stmt->execute();
+    $A = $stmt->rowCount();
+    $C =ceil($A/$B);
+    if (isset($_GET['start'])) {
+       $X = $_GET['start'];
+    }else{
+        $X = 0;
+    }
     $dem = 1;
+    $data = danh_sach_tin_tuc($conn,$X,$B);
+    
     foreach ($data as $val) { ?>
 	<tr class="list_data">
         <td class="aligncenter"> <?php echo $dem; ?> </td>
@@ -26,4 +35,28 @@
     </tr>
 	<?php $dem += 1; } ?>
 </table>
-	
+
+<div align="center">
+<?php  
+    if ($C > 1) {
+        $D = $X/$B + 1;
+        if ($D != 1) {
+            $Y = $X - $B; 
+            echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'>Prev</a>";
+        }
+        for ($i=1; $i <= $C ; $i++) {
+            if ($D == $i) {
+               echo " <b> $i</b> ";
+            }else{
+                $Y = ($i-1)*$B;
+                echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'> $i </a> ";
+            }
+           
+        }
+        if ($D != $C) {
+            $Y = $X + $B;
+           echo "<a href='index.php?p=danh-sach-tin-tuc&dem=$dem&start=$Y'>Next</a>";
+        }
+    }
+?>
+</div>

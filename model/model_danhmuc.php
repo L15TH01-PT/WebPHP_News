@@ -33,6 +33,27 @@ function dm_cha($conn,$parent_id = 0, $str="--|",$selected){
 	}
 }
 
+function cate_list_data ($conn,$X,$B,$parent_id = 0,$str = "") {
+	$ax = $X;
+	$ab = $B;
+	$stmt = $conn->prepare("SELECT id,name FROM category WHERE parent_id = :parent_id limit $X,$B");
+	$stmt->bindParam(':parent_id',$parent_id,PDO::PARAM_INT);
+	$stmt->execute();
+	$r = $stmt->rowCount();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($data as $key => $value) {
+		echo '	<tr class="list_data">
+		        	
+		        	<td class="list_td alignleft"><a href="index.php?p=sua-danh-muc&dmid='.$value["id"].'">'.$str.$value["name"].'</a></td>
+		        	<td class="list_td aligncenter">
+		            	<a href="index.php?p=sua-danh-muc&dmid='.$value["id"].'"><img src="temp/images/edit.png" /></a>&nbsp;&nbsp;&nbsp;
+		            	<a href="index.php?p=xoa-danh-muc&dmid='.$value["id"].'" onclick="return accept_delete(\'Bạn có chắc muốn xóa danh mục này hay không ?\')"><img src="temp/images/delete.png" /></a>
+		        	</td>
+		    	</tr>';
+		    	unset($data[$key]);
+		    	cate_list_data ($conn,$ax,$ab,$value["id"],$str."---| ");
+	}
+}
 function danh_sach_dm($conn){
 	$stmt = $conn->prepare("SELECT * FROM category");
 	$stmt->execute();
@@ -80,19 +101,15 @@ function xoa_dm($conn,$id,&$error = null) {
 	$check1->bindParam(":id",$id);
 	$check1->execute();
 	$r1 = $check1->rowCount();
-	echo $r.'<br/>';
-	echo $r1.'<br/>';
-	// if ($r != 0) {
-	// 	$error ="không thể xóa danh mục!";
-	// }elseif ($r1 != 0) {
-	// 	$error ="không thể xóa danh mục!!!";
-	// }else{
-	// 	// $stmt = $conn->prepare("DELETE FROM category WHERE id = :id");
-	// 	// $stmt->bindParam(':id',$id,PDO::PARAM_INT);
-	// 	// $stmt->execute();
-	// 	// redirect ("index.php?p=danh-sach-danh-muc");
-	// 	echo '111';
-	// }
+	if ($r != 0 || $r1 != 0) {
+		$error ="không thể xóa danh mục!";
+	}else{
+		$stmt = $conn->prepare("DELETE FROM category WHERE id = :id");
+		$stmt->bindParam(':id',$id,PDO::PARAM_INT);
+		$stmt->execute();
+		redirect ("index.php?p=danh-sach-danh-muc");
+		// echo '111';
+	}
 }
 
 ?>

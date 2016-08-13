@@ -36,8 +36,8 @@ function them_tin($conn,$data,&$error){
 	}
 }
 
-function danh_sach_tin_tuc($conn){
-	$stmt = $conn ->prepare("SELECT title,name,news.id as nid,author,time_news FROM news INNER JOIN category where news.category_id = category.id order by time_news DESC");
+function danh_sach_tin_tuc($conn,$X,$B){
+	$stmt = $conn ->prepare("SELECT title,name,news.id as nid,author,time_news FROM news INNER JOIN category where news.category_id = category.id order by time_news DESC limit $X, $B");
 	$stmt ->execute();
 	$data = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 	return $data;
