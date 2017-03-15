@@ -125,7 +125,6 @@ function xoa_dm($conn,$id,&$error = null) {
 		$stmt->bindParam(':id',$id,PDO::PARAM_INT);
 		$stmt->execute();
 		redirect ("index.php?p=danh-sach-danh-muc");
-		// echo '111';
 	}
 }
 

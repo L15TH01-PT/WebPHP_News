@@ -11,9 +11,10 @@ function them_user($conn,$data,&$error){
 		$stmt->bindParam(":pass",$data["pass"],PDO::PARAM_STR);
 		$stmt->bindParam(":level",$data["level"],PDO::PARAM_INT);
 		$stmt->execute();
-		redirect("index.php?p=danh-sach-user");
+		$error = "1";
+		//redirect("index.php?p=danh-sach-user");
 	}else{
-		$error = "User đã tồn tại, Vui lòng kiểm tra lại";
+		$error = "0";
 	}
 }
 
@@ -64,7 +65,7 @@ function user_delete ($conn,$id) {
 	$stmt = $conn->prepare("DELETE FROM user WHERE id = :id");
 	$stmt->bindParam(':id',$id,PDO::PARAM_INT);
 	$stmt->execute();
-	redirect ("index.php?p=danh-sach-user");
+	// redirect ("index.php?p=danh-sach-user");
 }
 
 

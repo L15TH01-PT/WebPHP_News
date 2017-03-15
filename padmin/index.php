@@ -22,6 +22,7 @@ include '../library/function.php';
     <link rel="stylesheet" href="temp/templates/css/style.css" />
     <!-- Nhúng Ckeditor -->
     <script type="text/javascript" src="../library/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
 	<title>Admin Area :: Trang chính</title>
 	<script type="text/javascript">
 		function acceptDelete (msg) {
