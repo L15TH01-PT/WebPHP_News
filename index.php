@@ -15,6 +15,10 @@ require getLibsPath('connect');
     <link href="css/navbar.css" rel="stylesheet" />
     <link href="css/new-box.css" rel="stylesheet" />
     <link href="css/newsNaviwrapper.css" rel="stylesheet" />
+    <link href="css/auto-complete.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/mainjs.js"></script>
+    <script type="text/javascript" src="js/auto-complete.min.js"></script>
 </head>
 <body>
     <div id="header">
@@ -23,31 +27,31 @@ require getLibsPath('connect');
 
     <div id="contents">
         <?php
-        if(!isset($_GET['cat'])&&!isset($_GET['search']))
-        {
+            if(!isset($_GET['cat'])&&!isset($_GET['search']))
+            {
         ?>
         <div id="new-slideshow"></div>
         <?php
-        }
-        else
-        {
-            if(isset($_GET['cat']))
+            }
+            else
             {
-                require_once getModelPath('model_danhmuc');
-                $cat = thong_tin_sua_dm($conn,$_GET['cat']);
-                if($cat == null)
+                if(isset($_GET['cat']))
                 {
-                    @header('Location: .');
-                    echo '<h3>Danh mục không tồn tại<h3>';
-                    return;
-                }
+                    require_once getModelPath('model_danhmuc');
+                    $cat = thong_tin_sua_dm($conn,$_GET['cat']);
+                    if($cat == null)
+                    {
+                        @header('Location: .');
+                        echo '<h3>Danh mục không tồn tại<h3>';
+                        return;
+                    }
         ?>
         <h1>
             <?php echo $cat['name'];?>
         </h1>
         <?php
+                }
             }
-        }
         ?>
         <div id="new-contents">
             <div id="new-contents-left">

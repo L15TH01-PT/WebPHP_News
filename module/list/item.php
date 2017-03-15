@@ -10,6 +10,11 @@ function addListNewsItem($data)
             </p>
         </div>
     </div>
+    <?php
+        $getLink = array('ac'=>'news','news'=>$data['id']);
+        $url = getMyLinkWithGet($getLink);
+        $urlAjax = getMyLinkAjaxWithGet($getLink);
+    ?>
     <a href="<?php echo getMyLink(array('ac'=>'news','news'=>$data['id'])); ?>">
         <div class="new-contents-item-contents">
             <p class="news_day"><?php echo convert_time($data['time_news']);?></p>

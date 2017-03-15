@@ -24,20 +24,39 @@ else
     {
 ?>
 <div id="list_news_page">
-    <?php
+    <!--<?php
         if($page>1)
         {
+            $getLink = array('page'=>$page-1);
+            $url = getMyLinkWithGet($getLink);
+            $urlAjax = getMyLinkAjaxWithGet($getLink);
     ?>
     <div class="back">
-        <a href="<?php echo getMyLinkWithGet(array('page'=>$page-1));?>">Tin mới hơn</a>
+        <a href="<?php echo $url; ?>" onclick="return loadContentAjax('<?php echo $urlAjax; ?>','<?php echo $url; ?>')">Tin mới hơn</a>
     </div>
     <?php
         }
         if($page*NUM_IN_PAGE<$total)
         {
+            $getLink = array('page'=>$page+1);
+            $url = getMyLinkWithGet($getLink);
+            $urlAjax = getMyLinkAjaxWithGet($getLink);
     ?>
     <div class="next">
-        <a href="<?php echo getMyLinkWithGet(array('page'=>$page+1));?>">Tin cũ hơn</a>
+        <a href="<?php echo $url;?>" onclick="return loadContentAjax('<?php echo $urlAjax; ?>','<?php echo $url; ?>')">Tin cũ hơn</a>
+    </div>
+    <?php
+        }
+    ?>-->
+    <?php
+        if($page*NUM_IN_PAGE<$total)
+        {
+            $getLink = array('page'=>$page+1);
+            $url = getMyLinkWithGet($getLink);
+            $urlAjax = getMyLinkAjaxWithGet($getLink);
+    ?>
+    <div class="next">
+        <a href="#" onclick="return loadContentAjax('<?php echo $urlAjax; ?>','<?php echo $url; ?>')">Tin cũ hơn</a>
     </div>
     <?php
         }

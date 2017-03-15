@@ -21,11 +21,15 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ajax\comment.php" />
+    <Compile Include="ajax\getContent.php" />
+    <Compile Include="ajax\search.php" />
     <Compile Include="index.php" />
     <Compile Include="config.php" />
     <Compile Include="library\connect.php" />
     <Compile Include="library\function.php" />
     <Compile Include="library\mylibs.php" />
+    <Compile Include="model\model_comment.php" />
     <Compile Include="model\model_danhmuc.php" />
     <Compile Include="model\model_tintuc.php" />
     <Compile Include="model\model_user.php" />
@@ -47,8 +51,10 @@
     <Folder Include="module\header\" />
     <Folder Include="module\list\" />
     <Folder Include="module\" />
+    <Folder Include="ajax\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\auto-complete.css" />
     <Content Include="css\main.css" />
     <Content Include="css\navbar.css" />
     <Content Include="css\new-box.css" />
@@ -59,5 +65,8 @@
     <Content Include="images\pool-boat-icon-title.png" />
     <Content Include="images\pool-boat-icon.png" />
     <Content Include="images\searchicon.png" />
+    <Content Include="js\auto-complete.min.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
+    <Content Include="js\mainjs.js" />
   </ItemGroup>
 </Project>

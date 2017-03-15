@@ -21,8 +21,23 @@ function getModelPath($name='index')
 //get Link
 function getMyLink($path=array())
 {
-    return '?'.http_build_query($path);
+    return BASE_URL.'?'.http_build_query($path);
 }
+function getMyLinkAjax($path=array())
+{
+    return BASE_URL.'ajax/getContent.php?'.http_build_query($path);
+}
+function getLinkGET($path)
+{
+    if(!isset($path['ac'])&&isset($_GET['ac']))
+        $path['ac']=$_GET['ac'];
+    if(!isset($path['cat'])&&isset($_GET['cat']))
+        $path['cat']=$_GET['cat'];
+    if(!isset($path['search'])&&isset($_GET['search']))
+        $path['search']=$_GET['search'];
+    return $path;
+}
+
 function getMyLinkWithGet($path=array())
 {
     if(!isset($path['ac'])&&isset($_GET['ac']))
@@ -32,6 +47,16 @@ function getMyLinkWithGet($path=array())
     if(!isset($path['search'])&&isset($_GET['search']))
         $path['search']=$_GET['search'];
     return getMyLink($path);
+}
+function getMyLinkAjaxWithGet($path=array())
+{
+    if(!isset($path['ac'])&&isset($_GET['ac']))
+        $path['ac']=$_GET['ac'];
+    if(!isset($path['cat'])&&isset($_GET['cat']))
+        $path['cat']=$_GET['cat'];
+    if(!isset($path['search'])&&isset($_GET['search']))
+        $path['search']=$_GET['search'];
+    return getMyLinkAjax($path);
 }
 
 //get value GET, POST
