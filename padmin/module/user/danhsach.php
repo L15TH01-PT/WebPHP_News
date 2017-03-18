@@ -41,6 +41,7 @@ $data = danhsach_user ($conn);
 
 $data = danhsach_user ($conn);
 ?>
+<link rel="stylesheet" href="temp/templates/css/my_style.css" />
 <script type="text/javascript">
     function abc(userId){
         if(acceptDelete ('Bạn có chắc muốn xóa thành viên này hay không ??')){
@@ -74,6 +75,30 @@ $data = danhsach_user ($conn);
         
     }
 </script>
+
+<div id="addForm" style="overflow:hidden;">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<!-- Contact Us Form -->
+<form action="#" id="frmAddUser" method="post" name="form">
+<img id="close" src="../padmin/temp/images/delete-3.png" onclick ="div_hide()">
+<h2>Thêm User</h2>
+<hr>
+<input id="name" name="txtUser" placeholder="User name" type="text">
+<input id="password" name="txtPass" placeholder="Password" type="password">
+<input id="repassword" name="txtRePass" placeholder="Comfirm password" type="password"><br/><br/>
+<h3>Level:</h3> <input type="radio" name="rdoLevel" value="1"> Admin 
+       <input type="radio" name="rdoLevel" value="2" checked="checked"> Member<br/>
+<br/><a href="javascript:add_user()" id="submit">Thêm</a>
+</form>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+
+<div style="text-align: right;">
+    <button class="user_add1" id="popup" onclick="div_show()"></button> 
+</div>
+
 <table class="list_table">
     <tr class="list_heading">
         <td class="id_col">STT</td>
@@ -86,6 +111,7 @@ $data = danhsach_user ($conn);
     foreach ($data as $item) { 
         $stt = $stt + 1;
     ?>
+
     <tr class="list_data">
         <td class="aligncenter"><?php echo $stt; ?></td>
         <td class="list_td aligncenter"><?php echo $item["user"] ?></td>

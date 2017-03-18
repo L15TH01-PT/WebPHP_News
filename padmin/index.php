@@ -20,9 +20,11 @@ include '../library/function.php';
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="temp/templates/css/style.css" />
+    <!-- <link rel="stylesheet" href="temp/templates/css/my_style.css" /> -->
     <!-- Nhúng Ckeditor -->
     <script type="text/javascript" src="../library/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/my_js.js"></script>
 	<title>Admin Area :: Trang chính</title>
 	<script type="text/javascript">
 		function acceptDelete (msg) {
