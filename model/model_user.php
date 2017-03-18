@@ -11,10 +11,10 @@ function them_user($conn,$data,&$error){
 		$stmt->bindParam(":pass",$data["pass"],PDO::PARAM_STR);
 		$stmt->bindParam(":level",$data["level"],PDO::PARAM_INT);
 		$stmt->execute();
-		$error = "1";
+		return $error = "1";
 		//redirect("index.php?p=danh-sach-user");
 	}else{
-		$error = "0";
+		return $error = "0";
 	}
 }
 
@@ -38,7 +38,7 @@ function login ($conn,$data,&$error) {
 }
 
 function danhsach_user ($conn) {
-	$stmt = $conn->prepare("SELECT * FROM user ORDER BY id DESC");
+	$stmt = $conn->prepare("SELECT * FROM user ORDER BY level ASC");
 	$stmt->execute();
 	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $data;

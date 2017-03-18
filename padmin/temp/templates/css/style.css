@@ -187,6 +187,7 @@ img.thumbs {
 .list_data > td /* Dòng chứa record */ {
     border: 1px solid #eaeaea;
     padding: 3px;
+    height: 27px;
 }
 .list_data:hover /* Dòng chứa record */ {
     background: #f6f6f6;
@@ -267,11 +268,7 @@ img.thumbs {
     background: url('../images/chart.png') no-repeat left center;
 }
 /*Css cho từng khung bên trái*/
-.user_add1{
-    padding: 23px 30px !important;
-    background: url("../images/user_add.png") no-repeat center center;
-    margin-right: 20px;
-}
+
 
 .user_add {
     background: url("../images/user_add.png") no-repeat center center;
