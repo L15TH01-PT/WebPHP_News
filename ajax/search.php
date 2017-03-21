@@ -2,7 +2,7 @@
 require '../config.php';
 require '../library/mylibs.php';
 require '../library/function.php';
-require getLibsPath('connect');
+require_once getLibsPath('connect');
 require_once getModelPath('model_tintuc');
 require_once getModulePath('list/item');
 

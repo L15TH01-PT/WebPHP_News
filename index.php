@@ -3,6 +3,7 @@ require 'config.php';
 require 'library/mylibs.php';
 require 'library/function.php';
 require getLibsPath('connect');
+session_start();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,10 +16,13 @@ require getLibsPath('connect');
     <link href="css/navbar.css" rel="stylesheet" />
     <link href="css/new-box.css" rel="stylesheet" />
     <link href="css/newsNaviwrapper.css" rel="stylesheet" />
+    <link href="css/comment.css" rel="stylesheet" />
     <link href="css/auto-complete.css" rel="stylesheet" />
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="js/mainjs.js"></script>
     <script type="text/javascript" src="js/auto-complete.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/mainjs.js"></script>
 </head>
 <body>
     <div id="header">

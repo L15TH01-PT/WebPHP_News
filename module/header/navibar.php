@@ -42,7 +42,10 @@
                 <?php
                 }
             }
-            ?>
+                ?>
+            <li class="dropdown login" style="float: right;">
+                <?php include getModulePath("header/floatlogin"); ?>
+            </li>
         </ul>
     </nav>
 </div>

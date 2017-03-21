@@ -68,5 +68,64 @@ function user_delete ($conn,$id) {
 	// redirect ("index.php?p=danh-sach-user");
 }
 
+/*-----------------------------------------------------------------------*/
 
-?>
+function web_check_user($conn, $user){
+	$check = $conn->prepare("SELECT * FROM user WHERE user = :user");
+	$check->bindParam(':user', $user, PDO::PARAM_STR);
+	$check->execute();
+
+	$rowCount = $check->rowCount();
+    if($rowCount > 0)
+        return 1;
+    return 0;
+}
+
+function web_get_user($conn, $user){
+	$stmt = $conn->prepare("SELECT * FROM user WHERE user = :user");
+	$stmt->bindParam(':user', $user, PDO::PARAM_STR);
+	$stmt->execute();
+	$data = $stmt->fetch(PDO::FETCH_ASSOC);
+	return $data;
+}
+
+function web_them_user($conn, $data){
+    if(web_check_user($conn, $data["user"]) == 1)
+        return -1;
+
+    $data["level"] = 2;
+    $stmt = $conn->prepare("INSERT INTO user (user,pass,level) VALUES (:user,:pass,:level)");
+    $stmt->bindParam(":user",$data["user"],PDO::PARAM_STR);
+    $stmt->bindParam(":pass",$data["pass"],PDO::PARAM_STR);
+    $stmt->bindParam(":level",$data["level"],PDO::PARAM_INT);
+    $stmt->execute();
+    $rowCount = $stmt->rowCount();
+    if($rowCount > 0)
+    {
+        return web_login($conn, $data);
+    }
+    return 0;
+}
+
+function web_login ($conn,$data) {
+	$check = $conn->prepare("SELECT * FROM user WHERE user = :user AND pass = :pass");
+	$check->bindParam(':user',$data["user"],PDO::PARAM_STR);
+	$check->bindParam(':pass',$data["pass"],PDO::PARAM_STR);
+	$check->execute();
+	
+    $count = $check->rowCount();
+	if ($count == 0) {
+        return 0;
+    }
+
+	$data_login = $check->fetch(PDO::FETCH_ASSOC);
+    $_SESSION[SESSION_USER] = $data_login;
+    return 1;
+}
+
+function web_logout () {
+    unset($_SESSION[SESSION_USER]);
+    if(!isset($_SESSION[SESSION_USER]))
+        return 1;
+    return 0;
+}

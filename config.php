@@ -14,6 +14,7 @@ define("BASE_URL",
 ));
 //define("BASE_URL_AJAX", "http://localhost:55472/ajax/");
 define('NUM_IN_PAGE',2);
+define('SESSION_USER', 'user_web');
 
 // Dùng cho hàm đổi thời gian. Cập nhật chính xác múi giờ
 // Nếu đúng rồi thì thôi.

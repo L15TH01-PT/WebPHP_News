@@ -13,9 +13,10 @@
             var my_autoComplete = new autoComplete({
                 selector: 'input[name="search"]',
                 minChars: 1,
+                delay: 150,
                 source: function (term, response) {
                     //$.getJSON('/ajax/search.php', { q: term }, function (data) { response(data); });
-                    $.getJSON('http://localhost:8080/WebPHP_News/ajax/search.php', { q: term }, function (data) { response(data); });
+                    $.getJSON('ajax/search.php', { q: term }, function (data) { response(data); });
                 }
             });
 

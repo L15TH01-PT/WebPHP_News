@@ -170,3 +170,20 @@ div.clear{
     float: right;
     width: 300px;
 }
+
+#floatlogin .noti{
+    color: #F00;
+}
+
+#floatlogin a{
+    color: #000;
+}
+#floatlogin table{
+    text-align: left;
+}
+#floatlogin table td{
+    padding: 5px;
+}
+#floatlogin input[type="button"]{
+    padding: 5px;
+}

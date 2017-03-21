@@ -66,5 +66,5 @@ function getReGet($name,$default='')
 }
 function getRePost($name,$default='')
 {
-    return isset($_POST[$name])?$_GET[$name]:$default;
+    return isset($_POST[$name])?$_POST[$name]:$default;
 }
