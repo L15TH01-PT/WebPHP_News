@@ -24,6 +24,7 @@ if($myuser == null)
     <span hidden class="noti"></span>
     <textarea type="text" name="txtComment"  rows="5"></textarea>
     <input type="button" name="btnComment" value="Gởi bình luận" />
+    <span class="counttext">0/200</span>
 </p>
 <div class="list-comment">
 <?php   

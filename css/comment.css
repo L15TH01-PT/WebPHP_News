@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+.news-comment span.counttext{
+    float: right;
+}
+
 
 .news-comment input[type="button"]{
     margin-top: 10px;

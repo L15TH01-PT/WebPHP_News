@@ -1,5 +1,5 @@
 <div class="newsNaviwrapper">
-    <p class="nsa_title1">Latest News</p>
+    <p class="nsa_title1">Tin mới nhất</p>
     <?php
     require_once getModelPath('model_tintuc');
     $list=moi_nhat_tung_cat($conn);

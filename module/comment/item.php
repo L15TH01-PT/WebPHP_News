@@ -6,7 +6,7 @@ function addCommentItem($data, $myuser)
         <?php
             if($myuser != null)
             {
-                if($data["user_id"] == $myuser["id"] || ($myuser["level"] == 1 && $data["level"] != 1)){
+                if($data["user_id"] == $myuser["id"] || ($myuser["level"] == 1 /*&& $data["level"] != 1*/)){
         ?>
             <div class="comment-delete"><a href="#" data-id="<?php echo $data["id"]; ?>">Xóa bình luận</a></div>
         <?php

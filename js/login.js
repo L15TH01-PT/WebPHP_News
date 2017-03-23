@@ -87,7 +87,7 @@
                         noti.html("Tài khoản đã tồn tại!");
                     }
                     else {
-                        noti.html("Không thể đăng ký tài khoản này, xin tử lại sau vài phút!");
+                        noti.html("Không thể đăng ký tài khoản này, xin thử lại sau vài phút!");
                     }
                 }
             });
@@ -105,6 +105,35 @@
             }
         });
 
+    });
+    $("#frmChangepass input[name='changepass']").click(function (argument) {
+        btn = $(this);
+        noti = btn.parents("form").find("span.noti");
+        btn.prop("disabled", true);
+        var oldpassword = $("#frmChangepass input[name='oldpassword']").val();
+        var password = $("#frmChangepass input[name='password']").val();
+        var repassword = $("#frmChangepass input[name='repassword']").val();
+        if (password != repassword || oldpassword == password) {
+            noti.html("Thông tin nhập chưa đúng, xin kiểm tra lại!");
+        }
+        else {
+            $.ajax({
+                url: "ajax/user.php",
+                type: "POST",
+                data: { ac: "changepass", oldpass: oldpassword, pass: password },
+                success: function (data) {
+                    if (data == 1) {
+                        noti.html("Đổi mật khẩu thành công!");
+                    } else if (data == -1) {
+                        noti.html("Mật khẩu không khớp!");
+                    }
+                    else {
+                        noti.html("Không thể đổi mật khẩu tài khoản này, xin thử lại sau vài phút!!");
+                    }
+                }
+            });
+        }
+        btn.prop("disabled", false);
     });
 });
 validateEmail = function ($email) {
@@ -139,7 +168,9 @@ reloadLogin = function () {
         type: "POST",
         data: { ac: "loadcontent" },
         success: function (data) {
-            $("li.login").html(data);
+            item = $(data);
+            $("li.login").html(item);
+            item.fadeIn('slow');
         }
     });
     formcomment = $(".news-comment");

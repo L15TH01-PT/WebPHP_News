@@ -123,6 +123,50 @@ function web_login ($conn,$data) {
     return 1;
 }
 
+function web_check_login ($conn,$data) {
+	$check = $conn->prepare("SELECT * FROM user WHERE user = :user AND pass = :pass");
+	$check->bindParam(':user',$data["user"],PDO::PARAM_STR);
+	$check->bindParam(':pass',$data["pass"],PDO::PARAM_STR);
+	$check->execute();
+	
+	$rowCount = $check->rowCount();
+    if($rowCount > 0)
+        return 1;
+    return 0;
+}
+
+function web_check_login2 ($conn) {
+	if(!isset($_SESSION[SESSION_USER]))
+		return 0;
+	$data = $_SESSION[SESSION_USER];
+	$check = $conn->prepare("SELECT * FROM user WHERE user = :user AND pass = :pass");
+	$check->bindParam(':user',$data["user"],PDO::PARAM_STR);
+	$check->bindParam(':pass',$data["pass"],PDO::PARAM_STR);
+	$check->execute();
+	
+	$rowCount = $check->rowCount();
+    if($rowCount > 0)
+        return 1;
+    return 0;
+}
+
+function web_change_pass ($conn, $data) {
+	if(!isset($_SESSION[SESSION_USER]))
+		return 0;
+	$curuser = $_SESSION[SESSION_USER];
+	$check = $conn->prepare("UPDATE user SET pass = :pass WHERE user = :user AND pass = :oldpass");
+	$check->bindParam(':user',$curuser["user"],PDO::PARAM_STR);
+	$check->bindParam(':pass',$data["pass"],PDO::PARAM_STR);
+	$check->bindParam(':oldpass',$curuser["pass"],PDO::PARAM_STR);
+	$check->execute();
+	
+	$rowCount = $check->rowCount();
+    if($rowCount == 0)
+        return 0;
+    $_SESSION[SESSION_USER] = web_get_user($conn, $curuser["user"]);
+    return 1;
+}
+
 function web_logout () {
     unset($_SESSION[SESSION_USER]);
     if(!isset($_SESSION[SESSION_USER]))

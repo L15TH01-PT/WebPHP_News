@@ -15,7 +15,7 @@ if(count($data) == 0)
 else
 {
     if(getReGet('search','')!='')
-        echo "<p style='padding: 5px;margin-bottom: 25px;'>Tìm thấy <b>$total</b> tin tức";// với từ khóa <b>".getReGet('search','')."</b></p>";
+        echo "<p style='padding: 5px;margin-bottom: 25px;'>Tìm thấy <b>$total</b> tin tức với từ khóa <b>".getReGet('search','')."</b></p>";
     foreach ($data as $item)
     {
         addListNewsItem($item);

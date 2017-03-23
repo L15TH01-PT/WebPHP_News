@@ -5,7 +5,10 @@
         success: function (data) {
             //history.pushState(null, null, urlRewrite);
             $("#list_news_page").remove();
-            $("#new-contents-left").html($("#new-contents-left").html() + data);
+            item = $(data);
+            item.hide();
+            $("#new-contents-left").append(item);
+            item.fadeIn('slow');
         }
     });
     return false;
