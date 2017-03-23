@@ -61,11 +61,9 @@ function aaa (user_id,user_name,user_level,user_pass){
 	$('#submit').attr( 'href', 'javascript:edit_user()');
 	$('#name').attr( 'disabled', 'false' );
 	if (user_level == 1) {
-		document.getElementById('B').removeAttribute('checked');
-		$('#A').attr( 'checked', 'checked' );
+		$("#A").prop('checked', 'true');
 	}else{
-		document.getElementById('A').removeAttribute('checked');
-		$('#B').attr( 'checked', 'checked' );
+		$("#B").prop('checked', 'true');
 	}
 	
 	document.getElementById('newPassword').style.display = "block";

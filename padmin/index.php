@@ -104,7 +104,7 @@ include '../library/function.php';
 		?>    
 	</div>
     <div id="bottom">
-        PhongTran - LT51500122
+        Nhóm 1 - L15_TH01
     </div>
 </div>
 </body>

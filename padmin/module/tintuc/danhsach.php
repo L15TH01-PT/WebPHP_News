@@ -8,7 +8,7 @@
 		<td class="action_col">Xử lý?</td>
 	</tr>
     <?php
-    $B = 3;
+    $B = 7;
     if (isset($_GET['page'])) {
         $C = $_GET['page'];
     }else{

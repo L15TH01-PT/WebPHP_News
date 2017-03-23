@@ -25,7 +25,7 @@ function login ($conn,$data,&$error) {
 	$check->execute();
 	$count = $check->rowCount();
 	if ($count == 0) {
-		$error = "Tài Khoản Không Tồn Tại, Vui lòng Kiểm Tra lại";
+		$error = "Thông tin sai, Vui lòng Kiểm Tra lại";
 	}else{
 		$error = "ok";
 		$data_login = $check->fetch(PDO::FETCH_ASSOC);
