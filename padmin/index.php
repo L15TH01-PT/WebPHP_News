@@ -23,7 +23,8 @@ include '../library/function.php';
     <!-- Nhúng Ckeditor -->
     <script type="text/javascript" src="../library/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="../js/my_js.js"></script>
+    <script type="text/javascript" src="../js/user_js.js"></script>
+    <script type="text/javascript" src="../js/category_js.js"></script>
 	<title>Admin Area :: Trang chính</title>
 	<script type="text/javascript">
 		function acceptDelete (msg) {

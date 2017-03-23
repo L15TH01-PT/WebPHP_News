@@ -58,13 +58,28 @@ function user_edit ($conn,$data) {
 	$stmt->bindParam(':level',$data["level"],PDO::PARAM_STR);
 	$stmt->bindParam(':id',$data["id"],PDO::PARAM_STR);
 	$stmt->execute();
-	redirect("index.php?p=danh-sach-user");
+	// $row = $stmt->fetch();
+	// return $row;
+	// redirect("index.php?p=danh-sach-user");
+}
+
+function user_edit1 ($conn,$data) {
+	$stmt = $conn->prepare("UPDATE user SET pass = :newPass , level = :level WHERE id = :id AND pass = :oldPass");
+	$stmt->bindParam(':newPass',$data["newPass"],PDO::PARAM_STR);
+	$stmt->bindParam(':level',$data["level"],PDO::PARAM_STR);
+	$stmt->bindParam(':id',$data["id"],PDO::PARAM_STR);
+	$stmt->bindParam(':oldPass',$data["oldPass"],PDO::PARAM_STR);
+	$stmt->execute();
+
+	$count = $stmt->rowCount();
+	return $count;
 }
 
 function user_delete ($conn,$id) {
 	$stmt = $conn->prepare("DELETE FROM user WHERE id = :id");
 	$stmt->bindParam(':id',$id,PDO::PARAM_INT);
 	$stmt->execute();
+	
 	// redirect ("index.php?p=danh-sach-user");
 }
 

@@ -78,3 +78,7 @@ function show_user_list(){
 		}
 	});
 }
+
+function add_category(){
+	alert("aa");
+}
